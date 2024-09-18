@@ -16,7 +16,7 @@ export const PhotoSection = () => {
         <div className='flex flex-col items-center mx-[13px]'>
 
           <HomeImageCard
-            imageUrls={item.images}
+            images={item.images}
             nameOfPlace={item.nameOfPlace}
             location={item.location}
             peopleCount={item.peopleCount}

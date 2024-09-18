@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 
-const MobileWrapper = ({ children }) => {
+const MobileWrapper = ({ children }: any) => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {

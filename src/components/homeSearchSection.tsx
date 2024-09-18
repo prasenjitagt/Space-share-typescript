@@ -11,12 +11,12 @@ const HomeSearchSection = () => {
     const [selectedOption1, setSelectedOption1] = useState("");
     const [selectedOption2, setSelectedOption2] = useState("");
 
-    const handleSelect1 = (option: string) => {
+    const handleSelect1 = (option: string): void => {
         setSelectedOption1(option);
         console.log('Dropdown 1 selected:', option);
     };
 
-    const handleSelect2 = (option: string) => {
+    const handleSelect2 = (option: string): void => {
         setSelectedOption2(option);
         console.log('Dropdown 2 selected:', option);
     };

@@ -3,13 +3,22 @@ import { useState } from 'react';
 import Image from 'next/image';
 import bottomArrowIcon from '../assets/icons/bottomArrow.svg';
 
-const Dropdown = ({ options, onSelect, placeholder }) => {
+
+interface DropdownParams {
+    options: string[],
+    onSelect: (option: string) => void,
+    placeholder: string
+}
+
+const Dropdown = ({ options, onSelect, placeholder }: DropdownParams) => {
+
+
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(placeholder || "Select an option");
 
     const toggleDropdown = () => setIsOpen(!isOpen);
 
-    const handleOptionClick = (option) => {
+    const handleOptionClick = (option: string): void => {
         setSelectedOption(option);
         setIsOpen(false);
         if (onSelect) onSelect(option);
@@ -43,7 +52,7 @@ const Dropdown = ({ options, onSelect, placeholder }) => {
 
                 {isOpen && (
                     <ul className='py-[10px] pl-[20px]  '>
-                        {options.map((option, index) => (
+                        {options.map((option: string, index: number) => (
                             <li
                                 key={index}
                                 className="py-[4px] "
