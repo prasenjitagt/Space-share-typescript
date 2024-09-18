@@ -2,26 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .carouselArrow {
+        @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-all duration-300
+    }
+
+    .carouselTransition {
+        @apply transition-transform duration-500
+    }
+
+    .themedBtn {
+        @apply bg-myRed text-white w-36 py-4 pl-2 flex text-[12px] font-extrabold rounded-lg
+    }
+
+    .centerAll {
+        @apply flex flex-col justify-center items-center
+    }
+
+    .check {
+        @apply border-2 border-red-700
+    }
+
+    .selectedPageBg {
+        @apply bg-red-200 rounded-lg p-1
+    }
+
+    .inputField {
+        @apply text-base block px-3 py-2 rounded-lg w-full bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none
+    }
+
+
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
 }
