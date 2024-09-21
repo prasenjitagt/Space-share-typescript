@@ -1,4 +1,4 @@
-import '../../stylesheets/loading.css'
+import '@/stylesheets/loading.css'
 
 const Loading = () => {
     return (
@@ -9,3 +9,5 @@ const Loading = () => {
 }
 
 export default Loading
+
+

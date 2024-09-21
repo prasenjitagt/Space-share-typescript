@@ -10,18 +10,22 @@ export const PhotoSection = () => {
   return (
 
 
-    Places.map((item: eachPlace) => {
+    Places.map((place: eachPlace) => {
+
+      const { areaInSqft, id, images, location, nameOfPlace, peopleCount, price, reviewCount } = place;
+
 
       return (
         <div className='flex flex-col items-center mx-[13px]'>
 
           <HomeImageCard
-            images={item.images}
-            nameOfPlace={item.nameOfPlace}
-            location={item.location}
-            peopleCount={item.peopleCount}
-            reviewCount={item.reviewCount}
-            price={item.price}
+            id={id}
+            images={images}
+            nameOfPlace={nameOfPlace}
+            location={location}
+            peopleCount={peopleCount}
+            reviewCount={reviewCount}
+            price={price}
           />
           <div className="h-[10px]"></div>
 

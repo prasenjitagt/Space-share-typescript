@@ -3,36 +3,42 @@
 import Places, { eachPlace } from '@/data/homePageData'
 import SpacesImageCard from './spacesImageCard'
 
+interface Props {
+    placeId: string
+}
 
-
-const DetailsPagePhoto = () => {
+const DetailsPagePhoto = (props: Props) => {
 
     return (
 
 
-        Places.map((item: eachPlace) => {
+        Places.filter((place: eachPlace) => place.id === props.placeId)
+            .map((place: eachPlace) => {
 
-            return (
-                <div className='flex flex-col items-center mx-[13px]'>
+                const { areaInSqft, id, images, location, nameOfPlace, peopleCount, price, reviewCount } = place;
 
-                    <SpacesImageCard
-                        images={item.images}
-                        location={item.location}
-                        nameOfPlace={item.nameOfPlace}
-                        peopleCount={item.peopleCount}
-                        price={item.price}
-                        reviewCount={item.reviewCount}
+                return (
+                    <div className='flex flex-col items-center mx-[13px] '>
 
-                    />
-                    <div className="h-[10px]"></div>
+                        <SpacesImageCard
 
-                </div>
-            )
+                            areaInSqft={areaInSqft}
+                            images={images}
+                            location={location}
+                            nameOfPlace={nameOfPlace}
+                            peopleCount={peopleCount}
+                            reviewCount={reviewCount}
+
+                        />
+                        <div className="h-[10px]"></div>
+
+                    </div>
+                )
 
 
 
 
-        })
+            })
 
 
 

@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react';
 import Image from 'next/image';
-import bottomArrowIcon from '../assets/icons/bottomArrow.svg';
 
 
 interface DropdownParams {
@@ -35,7 +34,7 @@ const Dropdown = ({ options, onSelect, placeholder }: DropdownParams) => {
                     </button>
                     <Image alt='search icon'
                         className={`${isOpen ? 'rotate-180' : ''} transition-transform duration-300 ease-in-out`}
-                        src={bottomArrowIcon}
+                        src="./icons/bottomArrow.svg"
                         width={18}
                         height={18} />
                 </div>

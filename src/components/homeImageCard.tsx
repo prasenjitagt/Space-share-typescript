@@ -1,35 +1,44 @@
 'use client';
 
+
 import { useState } from 'react';
 import Image from 'next/image';
-import heartIcon from '../assets/icons/heart.svg';
-import saleTagIcon from '../assets/icons/saleTag.svg';
-import locationIcon from '../assets/icons/location.svg';
-import startIcon from '../assets/icons/star.svg';
-import userIcon from '../assets/icons/user.svg';
-import leftArrowIcon from '../assets/icons/leftArrow.svg';
-import rightArrowIcon from '../assets/icons/rightArrow.svg';
 import { Inter } from 'next/font/google';
-import { eachPlace } from '@/data/homePageData';
+import { useRouter } from 'next/navigation';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const HomeImageCard = (props: eachPlace) => {
+export interface Props {
+    id: string,
+    images: string[],
+    nameOfPlace: string,
+    location: string,
+    reviewCount: string,
+    peopleCount: string,
+    price: string,
+}
+
+const HomeImageCard = (props: Props) => {
 
 
-    const { images, location, nameOfPlace, peopleCount, price, reviewCount } = props;
-    const imageUrls = images;
+    const imageUrls = props.images;
+
 
     const maxImageIndex = imageUrls.length - 1;
     const [currentImage, setCurrentImage] = useState(0);
+    const rounter = useRouter();
 
-    const handleLeftArrow = () => {
+    const handleLeftArrow = (): void => {
         setCurrentImage(prevCount => prevCount === 0 ? maxImageIndex : prevCount - 1);
     };
 
-    const handleRightArrow = () => {
+    const handleRightArrow = (): void => {
         setCurrentImage(prevCount => prevCount === maxImageIndex ? 0 : prevCount + 1);
     };
+
+    const goToDetailedPage = (): void => {
+        rounter.push(`place-details/${props.id}`)
+    }
 
     return (
         <div className={`rounded-lg shadow-xl overflow-hidden w-full bg-[#FAFAFB] relative`}>
@@ -37,8 +46,10 @@ const HomeImageCard = (props: eachPlace) => {
             <section className="relative w-full h-[319px] overflow-hidden">
                 {/* Image Container */}
                 <div
-                    className="flex transition-transform duration-500 ease-in-out"
+                    className="flex transition-transform duration-500 ease-in-out cursor-pointer"
                     style={{ transform: `translateX(-${currentImage * 100}%)` }}
+
+                    onClick={goToDetailedPage}
                 >
                     {imageUrls.map((url, index) => (
                         <div key={index} className="w-full h-[319px] relative flex-shrink-0">
@@ -55,13 +66,13 @@ const HomeImageCard = (props: eachPlace) => {
 
                 {/* For Sale */}
                 <button className="flex flex-row items-center absolute top-2 left-2 bg-[#FAFAFB] text-black text-xs py-1 px-3 rounded-full border border-gray-300 opacity-80">
-                    <Image alt='sales' src={saleTagIcon} width={20} height={20} />
+                    <Image alt='sales' src="/icons/saleTag.svg" width={20} height={20} />
                     <p>For sale</p>
                 </button>
 
                 {/* Wishlist */}
                 <button className="absolute top-2 right-2 bg-[#FAFAFB] text-black p-2 rounded-full border border-gray-300 opacity-80">
-                    <Image alt='wishlist' src={heartIcon} width={20} height={20} />
+                    <Image alt='wishlist' src="/icons/heart.svg" width={20} height={20} />
                 </button>
 
                 {/* Left Arrow */}
@@ -69,7 +80,7 @@ const HomeImageCard = (props: eachPlace) => {
                     className="absolute top-[50%] left-2 bg-[#FAFAFB] text-black p-2 rounded-full border border-gray-300 opacity-80"
                     onClick={handleLeftArrow}
                 >
-                    <Image alt='last image' src={leftArrowIcon} width={20} height={20} />
+                    <Image alt='last image' src="/icons/leftArrow.svg" width={20} height={20} />
                 </button>
 
                 {/* Right Arrow */}
@@ -77,7 +88,7 @@ const HomeImageCard = (props: eachPlace) => {
                     className="absolute top-[50%] right-2 bg-[#FAFAFB] text-black p-2 rounded-full border border-gray-300 opacity-80"
                     onClick={handleRightArrow}
                 >
-                    <Image alt='next image' src={rightArrowIcon} width={20} height={20} />
+                    <Image alt='next image' src="/icons/rightArrow.svg" width={20} height={20} />
                 </button>
 
                 {/* Dots */}
@@ -93,26 +104,26 @@ const HomeImageCard = (props: eachPlace) => {
 
             {/* Text and Details */}
             <section className="mt-[10px] px-[14px]">
-                <h3 className="text-[17px]">{nameOfPlace}</h3>
+                <h3 className="text-[17px]">{props.nameOfPlace}</h3>
                 <div className="flex mb-[12px] text-[12.5px]">
-                    <Image alt='location' src={locationIcon} width={20} height={20} />
-                    <p>{location}</p>
+                    <Image alt='location' src="/icons/location.svg" width={20} height={20} />
+                    <p>{props.location}</p>
                 </div>
                 <div className='flex justify-between'>
                     <div className='flex justify-between'>
                         <div className="flex justify-between text-[13.5px] mb-4">
                             <div className="flex">
-                                <Image alt='review' src={startIcon} width={20} height={20} />
-                                <p>{`${reviewCount} reviews`}</p>
+                                <Image alt='review' src="/icons/star.svg" width={20} height={20} />
+                                <p>{`${props.reviewCount} reviews`}</p>
                             </div>
                             <div className='bg-black h-[full] w-[1px] mx-1'></div>
                             <div className="flex">
-                                <Image alt='peoples' src={userIcon} width={20} height={20} />
-                                <p>{`${peopleCount} people`}</p>
+                                <Image alt='peoples' src="/icons/user.svg" width={20} height={20} />
+                                <p>{`${props.peopleCount} people`}</p>
                             </div>
                         </div>
                     </div>
-                    <p className="text-[17px]">{`₹${price}/hr`}</p>
+                    <p className="text-[17px]">{`₹${props.price}/hr`}</p>
                 </div>
             </section>
         </div>

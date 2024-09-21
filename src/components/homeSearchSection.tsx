@@ -2,9 +2,7 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image';
-import MobileWrapper from './mobile_wrapper'
-import searchIcon from "../assets/icons/search.svg"
-import filterIcon from "../assets/icons/filter.svg"
+import MobileWrapper from './mobile_wrapper';
 import Dropdown from '@/components/dropDownMenu';
 
 const HomeSearchSection = () => {
@@ -42,7 +40,7 @@ const HomeSearchSection = () => {
 
 
                             <div className='bg-black centerAll rounded-full  h-[40px] w-[40px] mr-[5px]'>
-                                <Image alt='search icon' src={searchIcon} width={20} height={20} />
+                                <Image alt='search icon' src="./icons/search.svg" width={20} height={20} />
                             </div>
 
                         </div>
@@ -51,7 +49,7 @@ const HomeSearchSection = () => {
                         <div className=' border-black border-[1px] centerAll rounded-full  h-[38px] w-[43px]'>
                             <Image
                                 alt='search icon'
-                                src={filterIcon}
+                                src="./icons/filter.svg"
                                 layout='fixed'
                                 width={24}
                                 height={24}
