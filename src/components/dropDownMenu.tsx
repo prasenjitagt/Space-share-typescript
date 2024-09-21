@@ -36,7 +36,8 @@ const Dropdown = ({ options, onSelect, placeholder }: DropdownParams) => {
                         className={`${isOpen ? 'rotate-180' : ''} transition-transform duration-300 ease-in-out`}
                         src="./icons/bottomArrow.svg"
                         width={18}
-                        height={18} />
+                        height={18}
+                    />
                 </div>
 
 

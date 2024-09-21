@@ -21,7 +21,7 @@ const HomeSearchSection = () => {
 
     return (
         <MobileWrapper>
-            <head className='centerAll'>
+            <div className='centerAll'>
                 <nav ><p className="font-[900] [font-family:'Futura-Black-Bold',Helvetica] text-[18px]">SPACEHUB</p></nav>
 
 
@@ -50,7 +50,6 @@ const HomeSearchSection = () => {
                             <Image
                                 alt='search icon'
                                 src="./icons/filter.svg"
-                                layout='fixed'
                                 width={24}
                                 height={24}
                             />
@@ -79,7 +78,7 @@ const HomeSearchSection = () => {
                     </div>
 
                 </section>
-            </head>
+            </div>
         </MobileWrapper>
     )
 }

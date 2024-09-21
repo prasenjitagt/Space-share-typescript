@@ -18,6 +18,8 @@ const DetailsPageAmenities = ({ placeId }: Props) => {
 
     const amenitiesForPlace: ReturnInterface = getAmenitiesByIds(place.amenityIds);
 
+    const { amenities, amenityCount } = amenitiesForPlace;
+
     return (
         <div className="[font-family:Inter] mx-[13px]">
 
@@ -32,7 +34,7 @@ const DetailsPageAmenities = ({ placeId }: Props) => {
             <section className="">
 
 
-                {amenitiesForPlace['amenities'].map((amenity: eachAmenity) => {
+                {amenities.map((amenity: eachAmenity) => {
 
                     const { amenityIconName, amenityId, amenityName } = amenity;
 
@@ -59,12 +61,12 @@ const DetailsPageAmenities = ({ placeId }: Props) => {
 
 
                 {/* Dialog Box Button for showing all amenities */}
-                <div className='centerAll w-full my-[24px]'>
-                    <button className='border-[#0A0A0A] border-[1px] rounded-[6px] px-[24px]
-                    py-[12px] text-[16px]'>
-                        {`Show all ${amenitiesForPlace.amenityCount} amenities`}
-                    </button>
-                </div>
+
+
+                {
+                    amenityCount <= 5 ? null : <ShowAllAmenitiesButton amenityCount={amenityCount} />
+                }
+
 
 
 
@@ -81,3 +83,22 @@ const DetailsPageAmenities = ({ placeId }: Props) => {
 };
 
 export default DetailsPageAmenities;
+
+
+
+interface AmenityCountProp {
+    amenityCount: number
+}
+
+export const ShowAllAmenitiesButton: React.FC<AmenityCountProp> = ({ amenityCount }: AmenityCountProp): React.JSX.Element => {
+    return (
+        <div className='centerAll w-full my-[24px]'>
+            <button className='border-[#0A0A0A] border-[1px] rounded-[6px] px-[24px]
+                    py-[12px] text-[16px]'>
+                {`Show all ${amenityCount} amenities`}
+            </button>
+
+        </div>
+    )
+}
+

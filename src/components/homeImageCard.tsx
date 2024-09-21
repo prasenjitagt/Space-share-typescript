@@ -28,11 +28,13 @@ const HomeImageCard = (props: Props) => {
     const [currentImage, setCurrentImage] = useState(0);
     const rounter = useRouter();
 
-    const handleLeftArrow = (): void => {
+    const handleLeftArrow = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+        e.stopPropagation();
         setCurrentImage(prevCount => prevCount === 0 ? maxImageIndex : prevCount - 1);
     };
 
-    const handleRightArrow = (): void => {
+    const handleRightArrow = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+        e.stopPropagation();
         setCurrentImage(prevCount => prevCount === maxImageIndex ? 0 : prevCount + 1);
     };
 
@@ -40,7 +42,8 @@ const HomeImageCard = (props: Props) => {
         rounter.push(`place-details/${props.id}`)
     }
 
-    const handleWishList = (): void => {
+    const handleWishList = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+        e.stopPropagation();
         console.log('whislisted');
 
     }
@@ -49,10 +52,13 @@ const HomeImageCard = (props: Props) => {
     return (
         <div
             className={`rounded-lg shadow-xl overflow-hidden w-full bg-[#FAFAFB] relative cursor-pointer`}
-            onClick={goToDetailedPage}
+
         >
             {/* Image section */}
-            <section className="relative w-full h-[319px] overflow-hidden">
+            <section
+                className="relative w-full h-[319px] overflow-hidden"
+                onClick={goToDetailedPage}
+            >
                 {/* Image Container */}
                 <div
                     className="flex transition-transform duration-500 ease-in-out "
@@ -66,6 +72,7 @@ const HomeImageCard = (props: Props) => {
                                 src={url}
                                 alt="Studio setup"
                                 fill
+                                priority
                                 className='rounded-lg'
                             />
                         </div>
