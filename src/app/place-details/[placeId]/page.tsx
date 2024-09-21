@@ -16,7 +16,7 @@ const DetailsPage = ({ params }: { params: Params }) => {
   const router = useRouter();
 
   const handleLeftArrow = (): void => {
-    router.push('/');
+    router.back();
   }
 
   return (

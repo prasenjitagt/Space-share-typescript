@@ -40,16 +40,25 @@ const HomeImageCard = (props: Props) => {
         rounter.push(`place-details/${props.id}`)
     }
 
+    const handleWishList = (): void => {
+        console.log('whislisted');
+
+    }
+
+
     return (
-        <div className={`rounded-lg shadow-xl overflow-hidden w-full bg-[#FAFAFB] relative`}>
+        <div
+            className={`rounded-lg shadow-xl overflow-hidden w-full bg-[#FAFAFB] relative cursor-pointer`}
+            onClick={goToDetailedPage}
+        >
             {/* Image section */}
             <section className="relative w-full h-[319px] overflow-hidden">
                 {/* Image Container */}
                 <div
-                    className="flex transition-transform duration-500 ease-in-out cursor-pointer"
+                    className="flex transition-transform duration-500 ease-in-out "
                     style={{ transform: `translateX(-${currentImage * 100}%)` }}
 
-                    onClick={goToDetailedPage}
+
                 >
                     {imageUrls.map((url, index) => (
                         <div key={index} className="w-full h-[319px] relative flex-shrink-0">
@@ -71,7 +80,11 @@ const HomeImageCard = (props: Props) => {
                 </button>
 
                 {/* Wishlist */}
-                <button className="absolute top-2 right-2 bg-[#FAFAFB] text-black p-2 rounded-full border border-gray-300 opacity-80">
+                <button
+                    className="absolute top-2 right-2 bg-[#FAFAFB] text-black p-2 rounded-full border border-gray-300 opacity-80"
+
+                    onClick={handleWishList}
+                >
                     <Image alt='wishlist' src="/icons/heart.svg" width={20} height={20} />
                 </button>
 
