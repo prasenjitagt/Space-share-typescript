@@ -61,12 +61,11 @@ const HomeImageCard = (props: Props) => {
 
                 >
                     {imageUrls.map((url, index) => (
-                        <div key={index} className="w-full h-[319px] relative flex-shrink-0">
+                        <div key={index} className="w-full h-[319px] object-cover relative flex-shrink-0">
                             <Image
                                 src={url}
                                 alt="Studio setup"
-                                layout="fill"
-                                objectFit="cover"
+                                fill
                                 className='rounded-lg'
                             />
                         </div>
