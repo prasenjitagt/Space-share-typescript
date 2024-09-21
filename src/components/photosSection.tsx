@@ -16,7 +16,7 @@ export const PhotoSection = () => {
 
 
       return (
-        <div className='flex flex-col items-center mx-[13px]'>
+        <div className='flex flex-col items-center mx-[16px]'>
 
           <HomeImageCard
             id={id}

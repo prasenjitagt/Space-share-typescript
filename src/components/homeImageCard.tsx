@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import { useRouter } from 'next/navigation';
+// import '@/app/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -48,10 +49,15 @@ const HomeImageCard = (props: Props) => {
 
     }
 
+    const firstLetterToUpperCase = (inputString: string): string => {
+
+        return inputString.charAt(0).toUpperCase() + inputString.slice(1)
+    }
+
 
     return (
         <div
-            className={`rounded-lg shadow-xl overflow-hidden w-full bg-[#FAFAFB] relative cursor-pointer`}
+            className={`rounded-lg overflow-hidden w-[360px] bg-[#FAFAFB] relative cursor-pointer border-[0.5px]`}
 
         >
             {/* Image section */}
@@ -67,7 +73,7 @@ const HomeImageCard = (props: Props) => {
 
                 >
                     {imageUrls.map((url, index) => (
-                        <div key={index} className="w-full h-[319px] object-cover relative flex-shrink-0">
+                        <div key={index} className="w-full h-[319px] object-cover relative  flex-shrink-0">
                             <Image
                                 src={url}
                                 alt="Studio setup"
@@ -123,26 +129,39 @@ const HomeImageCard = (props: Props) => {
 
             {/* Text and Details */}
             <section className="mt-[10px] px-[14px]">
-                <h3 className="text-[17px]">{props.nameOfPlace}</h3>
-                <div className="flex mb-[12px] text-[12.5px]">
+
+
+                {/* Logic for first letter to be upper cased */}
+                <h3 className=" inter-medium whitespace-nowrap overflow-hidden text-ellipsis h-[30px] ">{firstLetterToUpperCase(props.nameOfPlace)}</h3>
+
+                {/* Location */}
+                <div className="flex items-center mb-[25px]  opacity-80">
                     <Image alt='location' src="/icons/location.svg" width={20} height={20} />
-                    <p>{props.location}</p>
+
+
+                    {/* Logic for first letter to be upper cased */}
+                    <p className='ml-[3px] inter-regular whitespace-nowrap overflow-hidden text-ellipsis '>{firstLetterToUpperCase(props.location)}</p>
                 </div>
-                <div className='flex justify-between'>
-                    <div className='flex justify-between'>
-                        <div className="flex justify-between text-[13.5px] mb-4">
+
+
+                {/* Review,People Count, Price */}
+                <div className='flex justify-between items-center mb-[9px]'>
+                    <div className='flex items-center '>
+                        <div className="flex justify-between  text-[16px] ">
                             <div className="flex">
                                 <Image alt='review' src="/icons/star.svg" width={20} height={20} />
-                                <p>{`${props.reviewCount} reviews`}</p>
+                                <p className='ml-[3px]'>{`${props.reviewCount} reviews`}</p>
                             </div>
-                            <div className='bg-black h-[full] w-[1px] mx-1'></div>
-                            <div className="flex">
+                            <div className='bg-black h-[full] w-[1px] mx-[8px]'></div>
+                            <div className="flex ">
                                 <Image alt='peoples' src="/icons/user.svg" width={20} height={20} />
-                                <p>{`${props.peopleCount} people`}</p>
+                                <p className='ml-[3px]'>{`${props.peopleCount} people`}</p>
                             </div>
                         </div>
                     </div>
-                    <p className="text-[17px]">{`₹${props.price}/hr`}</p>
+
+                    {/* Price of place */}
+                    <p className="text-[17px]  font-medium ">{`₹${props.price}/hr`}</p>
                 </div>
             </section>
         </div>

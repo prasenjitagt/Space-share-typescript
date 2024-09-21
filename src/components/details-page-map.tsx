@@ -22,18 +22,26 @@ const DetailsPageMap = () => {
 
 
             const { Map } = await loader.importLibrary('maps');
+            const { Marker } = await loader.importLibrary('marker') as google.maps.MarkerLibrary;
 
 
+            const position = { lat: 23.785450, lng: 91.261247 };
 
             const mapOptions: google.maps.MapOptions = {
-                center: { lat: 23.785450, lng: 91.261247 },
+                center: position,
                 zoom: 17,
                 mapId: 'details-page-map-id',
             }
 
 
-
+            // Setup the map
             const map = new Map(mapRef.current as HTMLDivElement, mapOptions);
+
+            //Place the marker
+            const marker = new Marker({
+                map: map,
+                position: position
+            });
 
         }
 
