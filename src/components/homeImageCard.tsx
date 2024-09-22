@@ -5,7 +5,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import { useRouter } from 'next/navigation';
-// import '@/app/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
