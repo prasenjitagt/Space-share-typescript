@@ -55,7 +55,7 @@ const DetailsPageMap = () => {
         <div className="[font-family:Inter] mx-[13px]">
 
             {/* Heading */}
-            <h3 className='text-[23px] font-[500] mb-[17px] mt-[24px] '>Location</h3>
+            <h3 className='inter-medium mb-[17px] mt-[24px] '>Location</h3>
 
 
             {/* Google Map */}

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
+import { firstLetterToUpperCase } from '@/utils/homeImageCardUtils';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -84,11 +85,23 @@ const SpacesImageCard = (props: Props) => {
 
             {/* Text and Details */}
             <section className="mt-[10px] px-[14px]">
-                <h3 className="text-[23px] w-[341px] font-[500]">{props.nameOfPlace}</h3>
-                <div className="flex mb-[12px] text-[12.5px] opacity-50 ">
-                    <Image alt='location icon' src="/icons/location.svg" width={20} height={20} />
-                    <p>{props.location}</p>
+
+
+                {/* Logic for first letter to be upper cased */}
+                <h3 className=" inter-medium whitespace-nowrap overflow-hidden text-ellipsis h-[30px] ">{firstLetterToUpperCase(props.nameOfPlace)}</h3>
+
+                {/* Location */}
+                <div className="flex items-center mb-[25px]  opacity-80">
+                    <Image alt='location' src="/icons/location.svg" width={20} height={20} />
+
+
+                    {/* Logic for first letter to be upper cased */}
+                    <p className='ml-[3px] inter-regular whitespace-nowrap overflow-hidden text-ellipsis '>{firstLetterToUpperCase(props.location)}</p>
                 </div>
+
+
+
+
                 <div className='flex justify-between'>
 
                     <div className="flex justify-between text-[13.5px] mb-4 w-[80%] ">

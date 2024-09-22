@@ -3,10 +3,9 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
 import { useRouter } from 'next/navigation';
+import { firstLetterToUpperCase } from '@/utils/homeImageCardUtils'
 
-const inter = Inter({ subsets: ['latin'] });
 
 export interface Props {
     id: string,
@@ -48,10 +47,7 @@ const HomeImageCard = (props: Props) => {
 
     }
 
-    const firstLetterToUpperCase = (inputString: string): string => {
 
-        return inputString.charAt(0).toUpperCase() + inputString.slice(1)
-    }
 
 
     return (

@@ -7,7 +7,7 @@ interface Props {
     placeId: string;
 }
 
-const DetailsPageAmenities = ({ placeId }: Props) => {
+const DetailsPageAmenities: React.FC<Props> = ({ placeId }: Props) => {
 
 
 
@@ -28,7 +28,7 @@ const DetailsPageAmenities = ({ placeId }: Props) => {
 
 
             {/* Heading */}
-            <h3 className='text-[23px] font-[500] mb-[17px] mt-[24px]'>What this place offers</h3>
+            <h3 className=' inter-medium mb-[17px] mt-[24px]'>What this place offers</h3>
 
             {/* Show Amenities */}
             <section className="">
