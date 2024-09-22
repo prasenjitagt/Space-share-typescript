@@ -26,7 +26,9 @@ const DetailsPageReviews: React.FC = () => {
 
 
             <Slider {...settings}>
+                {
 
+                }
             </Slider>
 
         </div>

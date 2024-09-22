@@ -1,0 +1,10 @@
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+.scroll-hidden::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* Hide scrollbar for Firefox */
+.scroll-hidden {
+    scrollbar-width: none;
+}
