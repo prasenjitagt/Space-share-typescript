@@ -8,6 +8,8 @@ import DetailsPageMap from '@/components/details-page-map';
 import DetailsPageOperatingHours from '@/components/details-page-operating-hours';
 import { Provider } from 'react-redux';
 import store from '@/app/store';
+import DetailsPageCalendar from '@/components/details-page-calender';
+import DetailsPageReviews from '@/components/details-page-reviews';
 
 
 interface Params {
@@ -39,6 +41,11 @@ const DetailsPage = ({ params }: { params: Params }) => {
         <DetailsPageMap />
 
         <DetailsPageOperatingHours placeId={params.placeId} />
+
+        <DetailsPageCalendar />
+
+
+        <DetailsPageReviews />
 
       </Provider>
 

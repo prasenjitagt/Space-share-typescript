@@ -104,23 +104,23 @@ const SpacesImageCard = (props: Props) => {
 
                 <div className='flex justify-between'>
 
-                    <div className="flex justify-between text-[13.5px] mb-4 w-[80%] ">
+                    <div className="flex justify-between items-center inter-for-icons mb-4 w-[85%] ">
 
                         {/* Reviews */}
-                        <div className="flex">
+                        <div className="flex items-center">
                             <Image alt='reviews' src="/icons/star.svg" width={20} height={20} />
                             <p>{`${props.reviewCount} reviews`}</p>
                         </div>
 
                         {/* People Count */}
-                        <div className="flex">
+                        <div className="flex items-center">
                             <Image alt='peoples' src="/icons/user.svg" width={20} height={20} />
                             <p>{`${props.peopleCount} people`}</p>
                         </div>
 
 
                         {/* Total Area */}
-                        <div className="flex">
+                        <div className="flex items-center">
                             <Image alt='peoples' src="/icons/area.svg" width={20} height={20} />
                             <p>{`${props.areaInSqft} sqft`}</p>
                         </div>

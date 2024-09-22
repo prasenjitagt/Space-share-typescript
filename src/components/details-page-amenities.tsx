@@ -21,17 +21,17 @@ const DetailsPageAmenities: React.FC<Props> = ({ placeId }: Props) => {
     const { amenities, amenityCount } = amenitiesForPlace;
 
     return (
-        <div className="[font-family:Inter] mx-[13px]">
+        <div className="[font-family:Inter] mx-[13px] ">
 
             {/* Divider */}
             <div className="h-[1px] w-full bg-slate-500 opacity-50" ></div>
 
 
             {/* Heading */}
-            <h3 className=' inter-medium mb-[17px] mt-[24px]'>What this place offers</h3>
+            <h3 className=' inter-medium mb-[17px] mt-[24px] mx-[14px]'>What this place offers</h3>
 
             {/* Show Amenities */}
-            <section className="">
+            <section className="mx-[14px]">
 
 
                 {amenities.map((amenity: eachAmenity) => {
@@ -40,7 +40,7 @@ const DetailsPageAmenities: React.FC<Props> = ({ placeId }: Props) => {
 
 
 
-                    return <div key={amenityId} className="flex mb-[10px]">
+                    return <div key={amenityId} className="flex items-center mb-[10px]">
 
 
                         <Image
@@ -51,7 +51,7 @@ const DetailsPageAmenities: React.FC<Props> = ({ placeId }: Props) => {
                             height={25}
                         />
                         {/* Amenity Name */}
-                        <p className="text-[16px] [font-family:Inter] font-[300]">{amenityName}</p>
+                        <p className="text-[16px] inter-regular font-[300]">{amenityName}</p>
 
 
 
@@ -92,7 +92,7 @@ interface AmenityCountProp {
 
 export const ShowAllAmenitiesButton: React.FC<AmenityCountProp> = ({ amenityCount }: AmenityCountProp): React.JSX.Element => {
     return (
-        <div className='centerAll w-full my-[24px]'>
+        <div className='centerAll w-full my-[24px] inter-regular'>
             <button className='border-[#0A0A0A] border-[1px] rounded-[6px] px-[24px]
                     py-[12px] text-[16px]'>
                 {`Show all ${amenityCount} amenities`}

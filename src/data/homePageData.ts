@@ -32,7 +32,7 @@ const Places: eachPlace[] = [
         peopleCount: "12",
         price: "350",
         areaInSqft: '1200',
-        amenityIds: ['1', '2', '3', '4', '5'],
+        amenityIds: ['1', '2', '3', '4', '5', '6'],
         operatingHours: [
             {
                 days: ['Monday', 'Wednesday', 'Friday'],
@@ -61,7 +61,7 @@ const Places: eachPlace[] = [
         peopleCount: "18",
         price: "450",
         areaInSqft: '1300',
-        amenityIds: ['1', '2', '3'],
+        amenityIds: ['1', '2', '3', '6'],
         operatingHours: [
             {
                 days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],

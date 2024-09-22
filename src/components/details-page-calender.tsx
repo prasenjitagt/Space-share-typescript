@@ -1,25 +1,34 @@
-// import React, { useState } from 'react';
-// import Calendar from 'react-calendar';
-// import 'react-calendar/dist/Calendar.css';
+'use client'
 
-// const MyCalendar : React.FC = () => {
-//   const [date, setDate] = useState(new Date());
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
-//   return (
-//     <div className="container mx-auto p-6">
-//       <h1 className="text-3xl font-bold mb-4 text-center">Select a Date</h1>
-//       <div className="bg-white p-6 shadow-md rounded-lg max-w-lg mx-auto">
-//         <Calendar
-//           onChange={setDate}
-//           value={date}
-//           className="react-calendar bg-white"
-//         />
-//       </div>
-//       <p className="text-center mt-4 text-lg">
-//         Selected Date: {date.toDateString()}
-//       </p>
-//     </div>
-//   );
-// };
+const MyCalendar: React.FC = () => {
 
-// export default MyCalendar;
+    type ValuePiece = Date | null;
+
+    type Value = ValuePiece | [ValuePiece, ValuePiece];
+
+
+
+    const [date, setDate] = useState<Value>(new Date());
+
+    const selectedDate = date as Date;
+
+    return (
+        <div className="centerAll mx-[13px]">
+            <Calendar
+                onChange={setDate}
+                value={date}
+                className="react-calendar bg-white rounded-[17px]"
+
+            />
+
+            {/* Divider */}
+            <div className="h-[1px] my-[24px] w-full bg-slate-500 opacity-50 " ></div>
+        </div>
+    );
+};
+
+export default MyCalendar;

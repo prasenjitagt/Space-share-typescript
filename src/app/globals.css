@@ -28,6 +28,16 @@
     letter-spacing: 0.3px;
 }
 
+.inter-for-icons {
+    color: #202127;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0.3px;
+}
+
 
 @layer utilities {
     .carouselArrow {

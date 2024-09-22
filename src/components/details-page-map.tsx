@@ -52,14 +52,14 @@ const DetailsPageMap = () => {
     }, [])
 
     return (
-        <div className="[font-family:Inter] mx-[13px]">
+        <div className="mx-[13px]">
 
             {/* Heading */}
-            <h3 className='inter-medium mb-[17px] mt-[24px] '>Location</h3>
+            <h3 className='inter-medium mb-[17px] mt-[24px] mx-[14px] '>Location</h3>
 
 
             {/* Google Map */}
-            <div className="h-[183px] w-full" ref={mapRef}>
+            <div className="h-[183px]  mx-[14px] rounded-[17px]" ref={mapRef}>
 
             </div>
 

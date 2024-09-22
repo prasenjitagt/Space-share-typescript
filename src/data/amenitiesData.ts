@@ -30,6 +30,11 @@ const Amenities: eachAmenity[] = [
         amenityName: 'AC',
         amenityIconName: 'ac.svg'
     },
+    {
+        amenityId: '6',
+        amenityName: 'King Size Bed',
+        amenityIconName: 'bed.svg'
+    },
 ]
 
 export default Amenities;

@@ -21,10 +21,10 @@ const DetailsPageOperatingHours: React.FC<Props> = ({ placeId }: Props) => {
         <div className="px-[19px]">
 
             {/* Heading */}
-            <h3 className='inter-medium mb-[17px] mt-[24px] '>Operating Hours</h3>
+            <h3 className='inter-medium mb-[17px] mt-[24px] mx-[14px]'>Operating Hours</h3>
 
             {/* Operating Hours */}
-            <div className="w-full">
+            <div className=" mx-[14px]">
                 {currentPlace.map((place: eachPlace) => (
                     <div key={place.id} className="mb-4">
 

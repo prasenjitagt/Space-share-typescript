@@ -12,7 +12,7 @@ const DetailsPageNav = () => {
         router.back();
     }
     return (
-        <nav className='flex justify-between m-[28px]  '>
+        <nav className='flex justify-between mx-[28px] my-[10px] '>
 
             {/* Left Arrow */}
             <button
