@@ -17,12 +17,19 @@ interface PropType {
 const DetailsPageReviews: React.FC<PropType> = (props: PropType) => {
 
 
+    // All reviews from redux toolkit
     const allReviews: eachReview[] = useSelector((state: RootState) => state.storeReviews.sliceReviews);
 
+    // Filtered Reviews of this place Id
     const placeSpecificReviews: eachReview[] = allReviews.filter((review: eachReview) => review.placeId === props.placeId);
 
+    // Totall Rating
     const totalRating = placeSpecificReviews.reduce((sum, review) => sum + parseInt(review.reviewRating, 10), 0);
+
+    // How many Peoples have reviewed
     const reviewCount = placeSpecificReviews.length;
+
+    // Average of all reviews
     const averageRating = reviewCount > 0 ? (totalRating / reviewCount).toFixed(1) : 0;
 
     const settings = {
