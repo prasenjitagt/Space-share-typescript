@@ -1,10 +1,12 @@
-import placesSliceReducer from '@/features/places/placesSlice';
+import placesSliceReducer from '@/slices/places/places-slice';
+import reviewsSliceReducer from '@/slices/reviews/review-slice';
 import { configureStore } from '@reduxjs/toolkit'
 
 
 const store = configureStore({
     reducer: {
         storePlaces: placesSliceReducer,
+        storeReviews: reviewsSliceReducer,
     }
 });
 

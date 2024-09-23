@@ -1,13 +1,13 @@
 
-
+import DetailsPageImageCard from './details-page-image-card'
 import Places, { eachPlace } from '@/data/homePageData'
-import SpacesImageCard from './spacesImageCard'
 
-interface Props {
+
+interface PropsType {
     placeId: string
 }
 
-const DetailsPagePhoto = (props: Props) => {
+const DetailsPagePhotoSection: React.FC<PropsType> = (props: PropsType) => {
 
     return (
 
@@ -20,7 +20,7 @@ const DetailsPagePhoto = (props: Props) => {
                 return (
                     <div className='flex flex-col items-center mx-[13px] '>
 
-                        <SpacesImageCard
+                        <DetailsPageImageCard
 
                             areaInSqft={areaInSqft}
                             images={images}
@@ -46,4 +46,4 @@ const DetailsPagePhoto = (props: Props) => {
     )
 }
 
-export default DetailsPagePhoto
+export default DetailsPagePhotoSection;

@@ -2,11 +2,11 @@
 'use client'
 
 
-import FilterSection from "@/components/filterSection"
-import HomeSearchSection from "@/components/homeSearchSection"
-import { PhotoSection } from "@/components/photosSection"
+import HomePageFilterSection from "@/components/home-page/home-page-filter-section"
+import HomePageSearchSection from "@/components/home-page/home-page-search-section"
 import { Provider } from "react-redux"
 import store from "./store"
+import HomePagePhotosSection from "@/components/home-page/home-page-photos-section"
 const Home = () => {
 
   return (
@@ -14,9 +14,9 @@ const Home = () => {
       <Provider store={store}>
 
         {/* Home Page */}
-        <HomeSearchSection />
-        <FilterSection />
-        <PhotoSection />
+        <HomePageSearchSection />
+        <HomePageFilterSection />
+        <HomePagePhotosSection />
 
       </Provider>
     </>

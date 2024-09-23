@@ -13,9 +13,9 @@ interface Props {
 
 const DetailsPageOperatingHours: React.FC<Props> = ({ placeId }: Props) => {
 
-    const Places: eachPlace[] = useSelector((state: RootState) => state.storePlaces.slicePlaces)
+    const allPlaces: eachPlace[] = useSelector((state: RootState) => state.storePlaces.slicePlaces)
 
-    const currentPlace = Places.filter((eachPlace: eachPlace) => eachPlace.id === placeId)
+    const currentPlace = allPlaces.filter((eachPlace: eachPlace) => eachPlace.id === placeId)
 
     return (
         <div className="px-[19px]">

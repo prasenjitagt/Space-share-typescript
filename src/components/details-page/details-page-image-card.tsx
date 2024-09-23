@@ -1,13 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
 import { firstLetterToUpperCase } from '@/utils/homeImageCardUtils';
 
-const inter = Inter({ subsets: ['latin'] });
 
-interface Props {
+interface PropsType {
     images: string[],
     nameOfPlace: string,
     location: string,
@@ -16,7 +14,7 @@ interface Props {
     areaInSqft: string,
 }
 
-const SpacesImageCard = (props: Props) => {
+const DetailsPageImageCard: React.FC<PropsType> = (props: PropsType) => {
 
 
     const imageUrls = props.images;
@@ -134,4 +132,4 @@ const SpacesImageCard = (props: Props) => {
     );
 };
 
-export default SpacesImageCard;
+export default DetailsPageImageCard;

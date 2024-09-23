@@ -7,13 +7,13 @@ interface eachPlaceState {
     slicePlaces: eachPlace[]
 }
 
-const initialState: eachPlaceState = {
+const placeInitialState: eachPlaceState = {
     slicePlaces: Places
 };
 
 const placesSlice = createSlice({
     name: 'places',
-    initialState,
+    initialState: placeInitialState,
     reducers: {
         removePlace: (state, action: PayloadAction<{ id: string }>) => {
 
@@ -25,8 +25,6 @@ const placesSlice = createSlice({
 
 
 export const { removePlace } = placesSlice.actions;
-
-
 
 const placesSliceReducer = placesSlice.reducer;
 

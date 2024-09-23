@@ -1,10 +1,10 @@
 import React from 'react'
-import HomeImageCard from './homeImageCard'
-import Places, { eachPlace } from '../data/homePageData.ts'
+import HomePageImageCard from './home-page-image-card.tsx'
+import Places, { eachPlace } from '../../data/homePageData.ts'
 
 
 
-export const PhotoSection = () => {
+const HomePagePhotosSection = () => {
 
 
   return (
@@ -18,7 +18,7 @@ export const PhotoSection = () => {
       return (
         <div className='flex flex-col items-center mx-[16px]'>
 
-          <HomeImageCard
+          <HomePageImageCard
             id={id}
             images={images}
             nameOfPlace={nameOfPlace}
@@ -42,3 +42,6 @@ export const PhotoSection = () => {
 
   )
 }
+
+
+export default HomePagePhotosSection;

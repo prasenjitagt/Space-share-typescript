@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { firstLetterToUpperCase } from '@/utils/homeImageCardUtils';
 
-export interface Props {
+export interface PropType {
     id: string;
     images: string[];
     nameOfPlace: string;
@@ -15,7 +15,7 @@ export interface Props {
     price: string;
 }
 
-const HomeImageCard = (props: Props) => {
+const HomePageImageCard: React.FC<PropType> = (props: PropType) => {
     const imageUrls = props.images;
     const [currentImage, setCurrentImage] = useState(0);
     const router = useRouter();
@@ -132,4 +132,4 @@ const HomeImageCard = (props: Props) => {
     );
 };
 
-export default HomeImageCard;
+export default HomePageImageCard;

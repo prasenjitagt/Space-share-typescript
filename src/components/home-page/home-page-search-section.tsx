@@ -2,10 +2,10 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image';
-import MobileWrapper from './mobile_wrapper';
-import Dropdown from '@/components/dropDownMenu';
+import HomePageMobileWrapper from './home-page-mobile-wrapper';
+import HomePageDropDown from './home-page-drop-down-menu';
 
-const HomeSearchSection = () => {
+const HomePageSearchSection = () => {
     const [selectedOption1, setSelectedOption1] = useState("");
     const [selectedOption2, setSelectedOption2] = useState("");
 
@@ -20,7 +20,7 @@ const HomeSearchSection = () => {
     };
 
     return (
-        <MobileWrapper>
+        <HomePageMobileWrapper>
             <div className='centerAll'>
                 <nav ><p className="font-[900] [font-family:'Futura-Black-Bold',Helvetica] text-[18px]">SPACEHUB</p></nav>
 
@@ -63,14 +63,14 @@ const HomeSearchSection = () => {
                     {/* dropdown section */}
                     <div className='px-[27px]'>
 
-                        <Dropdown
+                        <HomePageDropDown
                             options={['Bengalore', 'Mumbai', 'Tiruvannat Puram']}
                             onSelect={handleSelect1}
                             placeholder="Location"
                         />
 
 
-                        <Dropdown
+                        <HomePageDropDown
                             options={['Nas', 'Khel', 'Has']}
                             onSelect={handleSelect2}
                             placeholder="Activities"
@@ -79,8 +79,8 @@ const HomeSearchSection = () => {
 
                 </section>
             </div>
-        </MobileWrapper>
+        </HomePageMobileWrapper>
     )
 }
 
-export default HomeSearchSection
+export default HomePageSearchSection;

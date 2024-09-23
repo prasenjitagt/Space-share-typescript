@@ -1,5 +1,5 @@
 
-const FilterSection = () => {
+const HomePageFilterSection = () => {
     return (
         <div className="mx-[27px] mb-[14px] flex flex-col">
 
@@ -22,7 +22,7 @@ const FilterSection = () => {
     )
 }
 
-export default FilterSection
+export default HomePageFilterSection
 
 
 interface PorpsType {

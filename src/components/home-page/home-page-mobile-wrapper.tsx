@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 
-const MobileWrapper = ({ children }: any) => {
+const HomePageMobileWrapper = ({ children }: any) => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -29,4 +29,4 @@ const MobileWrapper = ({ children }: any) => {
     return <>{children}</>;
 };
 
-export default MobileWrapper;
+export default HomePageMobileWrapper;

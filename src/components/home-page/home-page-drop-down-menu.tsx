@@ -9,7 +9,7 @@ interface DropdownParams {
     placeholder: string
 }
 
-const Dropdown = ({ options, onSelect, placeholder }: DropdownParams) => {
+const HomePageDropDown = ({ options, onSelect, placeholder }: DropdownParams) => {
 
 
     const [isOpen, setIsOpen] = useState(false);
@@ -69,4 +69,4 @@ const Dropdown = ({ options, onSelect, placeholder }: DropdownParams) => {
     );
 };
 
-export default Dropdown;
+export default HomePageDropDown;
