@@ -26,7 +26,7 @@ const MyCalendar: React.FC = () => {
             />
 
             {/* Divider */}
-            <div className="h-[1px] my-[24px] w-full bg-slate-500 opacity-50 " ></div>
+            <div className="h-[1px] my-[24px] w-full bg-slate-500 opacity-20 " ></div>
         </div>
     );
 };

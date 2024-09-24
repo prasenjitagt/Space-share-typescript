@@ -4,6 +4,7 @@ import { RootState } from "@/app/store"
 import React from "react"
 import { useSelector } from "react-redux"
 import { eachPlace, OperatingHours } from '@/data/homePageData'
+import DividerLine from "../small-components/divider-line"
 
 
 interface Props {
@@ -58,7 +59,9 @@ const DetailsPageOperatingHours: React.FC<Props> = ({ placeId }: Props) => {
             </div>
 
             {/* Divider */}
-            <div className="h-[1px] my-[24px] w-full bg-slate-500 opacity-50"></div>
+            <div className="my-[24px]">
+                <DividerLine />
+            </div>
         </div>
     )
 }

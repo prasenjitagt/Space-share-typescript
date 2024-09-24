@@ -38,6 +38,11 @@
     letter-spacing: 0.3px;
 }
 
+.inter-global {
+    font-family: "Inter", sans-serif;
+
+}
+
 
 .inter-for-carousel-text {
     color: #ffffff;

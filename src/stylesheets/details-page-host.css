@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+
+.inter-for-host {
+    color: #146EF5;
+    font-family: "Inter", sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.inter-for-host-date {
+    color: #575757;
+    font-family: "Inter", sans-serif;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.inter-review-and-verified {
+    color: #000;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+}

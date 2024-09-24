@@ -18,7 +18,7 @@ const DetailsPagePhotoSection: React.FC<PropsType> = (props: PropsType) => {
                 const { areaInSqft, id, images, location, nameOfPlace, peopleCount, price, reviewCount } = place;
 
                 return (
-                    <div className='flex flex-col items-center mx-[13px] '>
+                    <div key={id} className='flex flex-col items-center mx-[13px] '>
 
                         <DetailsPageImageCard
 

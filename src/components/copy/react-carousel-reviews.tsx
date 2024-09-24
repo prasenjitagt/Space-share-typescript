@@ -55,9 +55,10 @@ const DetailsPageReviews: React.FC<PropType> = (props: PropType) => {
             <Slider {...settings}>
                 {
                     placeSpecificReviews.splice(0, 5).map((eachReview: eachReview) => {
-                        const { placeId, reviewRating, reviewText, reviewerExperienceInYears, reviewerImageLink, reviewerName } = eachReview;
+                        const { placeId, reviewRating, reviewDate, reviewText, reviewerExperienceInYears, reviewerImageLink, reviewerName } = eachReview;
                         return (
                             <DetailsPageReviewCard
+                                reviewDate={reviewDate}
                                 placeId={placeId}
                                 reviewRating={reviewRating}
                                 reviewText={reviewText}

@@ -2,6 +2,7 @@
 
 import { Loader } from "@googlemaps/js-api-loader";
 import { useEffect, useRef } from "react"
+import DividerLine from "../small-components/divider-line";
 
 
 
@@ -22,7 +23,7 @@ const DetailsPageMap = () => {
 
 
             const { Map } = await loader.importLibrary('maps');
-            const { Marker } = await loader.importLibrary('marker') as google.maps.MarkerLibrary;
+            const { AdvancedMarkerElement } = await loader.importLibrary('marker') as google.maps.MarkerLibrary;
 
 
             const position = { lat: 23.785450, lng: 91.261247 };
@@ -38,7 +39,7 @@ const DetailsPageMap = () => {
             const map = new Map(mapRef.current as HTMLDivElement, mapOptions);
 
             //Place the marker
-            const marker = new Marker({
+            const marker = new AdvancedMarkerElement({
                 map: map,
                 position: position
             });
@@ -63,8 +64,11 @@ const DetailsPageMap = () => {
 
             </div>
 
+
             {/* Divider */}
-            <div className="h-[1px] my-[24px] w-full bg-slate-500 opacity-50 " ></div>
+            <div className="my-[24px]">
+                <DividerLine />
+            </div>
         </div>
     )
 }

@@ -3,6 +3,7 @@ import Amenities, { eachAmenity } from '@/data/amenitiesData';
 import Places, { eachPlace } from '@/data/homePageData';
 import { getAmenitiesByIds, ReturnInterface } from '@/utils/amenitiesUtils';
 import Image from 'next/image';
+import DividerLine from '../small-components/divider-line';
 interface Props {
     placeId: string;
 }
@@ -21,10 +22,9 @@ const DetailsPageAmenities: React.FC<Props> = ({ placeId }: Props) => {
     const { amenities, amenityCount } = amenitiesForPlace;
 
     return (
-        <div className="[font-family:Inter] mx-[13px] ">
+        <div className="inter-global mx-[13px] ">
 
-            {/* Divider */}
-            <div className="h-[1px] w-full bg-slate-500 opacity-50" ></div>
+            <DividerLine />
 
 
             {/* Heading */}
@@ -76,8 +76,7 @@ const DetailsPageAmenities: React.FC<Props> = ({ placeId }: Props) => {
 
 
 
-            {/* Divider */}
-            <div className="h-[1px] w-full bg-slate-500 opacity-50" ></div>
+            <DividerLine />
         </div>
     );
 };

@@ -16,7 +16,10 @@ const HomePagePhotosSection = () => {
 
 
       return (
-        <div className='flex flex-col items-center mx-[16px]'>
+        <div
+          key={id}
+          className='flex flex-col items-center mx-[16px]'
+        >
 
           <HomePageImageCard
             id={id}

@@ -1,9 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import Slider from 'react-slick'
-// In your _app.js or component
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { eachReview } from '@/data/reviewsData';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/app/store';
@@ -41,23 +37,26 @@ const DetailsPageReviews: React.FC<PropType> = (props: PropType) => {
 
     };
     return (
-        <div className="mx-[13px]">
-            {/* Reviews */}
-            <div className="flex items-center">
+        <div className="mx-[27px] mb-[24px]">
+            {/* Total Reviews */}
+            <div className="flex items-center mb-4 inter-medium">
                 <Image alt='reviews' src="/icons/star.svg" width={20} height={20} />
                 <p>{averageRating}</p>
-                <div className='w-[15px]'></div>
+                <div className='h-[20px] mx-[10px] border-[0.5px] border-neutral-500'></div>
                 <p>{`${reviewCount} reviews`}</p>
             </div>
 
 
+            <div>
 
-            <Slider {...settings}>
                 {
-                    placeSpecificReviews.splice(0, 5).map((eachReview: eachReview) => {
-                        const { placeId, reviewRating, reviewText, reviewerExperienceInYears, reviewerImageLink, reviewerName } = eachReview;
+                    placeSpecificReviews.splice(0, 5).map((eachReview: eachReview, index: number) => {
+                        const { placeId, reviewRating, reviewText, reviewerExperienceInYears, reviewerImageLink, reviewerName, reviewDate } = eachReview;
                         return (
                             <DetailsPageReviewCard
+
+                                key={index}
+                                reviewDate={reviewDate}
                                 placeId={placeId}
                                 reviewRating={reviewRating}
                                 reviewText={reviewText}
@@ -69,18 +68,17 @@ const DetailsPageReviews: React.FC<PropType> = (props: PropType) => {
 
                     })
                 }
-            </Slider>
 
+            </div>
 
 
             {/* Dialog Box Button for showing all amenities */}
             {
-                reviewCount <= 5 ? null : <ShowAllReviewsButton reviewCount={reviewCount} />
+                reviewCount <= 3 ? null : <ShowAllReviewsButton reviewCount={reviewCount} />
             }
 
 
-            {/* Divider */}
-            <div className="h-[1px] my-[24px] w-full bg-slate-500 opacity-50 " ></div>
+
         </div>
     )
 }

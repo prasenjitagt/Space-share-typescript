@@ -11,6 +11,7 @@ import store from '@/app/store';
 import DetailsPageCalendar from '@/components/details-page/details-page-calender';
 import DetailsPageReviews from '@/components/details-page/details-page-reviews';
 import DetailsPagePhotoSection from '@/components/details-page/details-page-photo-section';
+import DetailsPageHost from '@/components/details-page/details-page-host';
 
 
 interface Params {
@@ -20,7 +21,7 @@ interface Params {
 const DetailsPage = ({ params }: { params: Params }) => {
 
 
-
+  const placeId = params.placeId;
 
   return (
     <>
@@ -29,24 +30,19 @@ const DetailsPage = ({ params }: { params: Params }) => {
 
         <DetailsPageNav />
 
+        <DetailsPagePhotoSection placeId={placeId} />
 
-        <DetailsPagePhotoSection
-          placeId={params.placeId}
-        />
+        <DetailsPageHost placeId={placeId} />
 
-        <DetailsPageAmenities
-          placeId={params.placeId}
-        />
-
+        <DetailsPageAmenities placeId={placeId} />
 
         <DetailsPageMap />
 
-        <DetailsPageOperatingHours placeId={params.placeId} />
+        <DetailsPageOperatingHours placeId={placeId} />
 
         <DetailsPageCalendar />
 
-
-        {/* <DetailsPageReviews placeId={params.placeId} /> */}
+        <DetailsPageReviews placeId={placeId} />
 
       </Provider>
 
