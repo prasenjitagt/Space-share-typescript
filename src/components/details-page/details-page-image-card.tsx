@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { firstLetterToUpperCase } from '@/utils/homeImageCardUtils';
 
@@ -15,71 +15,64 @@ interface PropsType {
 }
 
 const DetailsPageImageCard: React.FC<PropsType> = (props: PropsType) => {
-
-
     const imageUrls = props.images;
-
-
-    const maxImageIndex = imageUrls.length - 1;
     const [currentImage, setCurrentImage] = useState(0);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-    const handleLeftArrow = () => {
-        setCurrentImage(prevCount => prevCount === 0 ? maxImageIndex : prevCount - 1);
+
+
+    // Handle scroll event to update the current image index
+    const handleScroll = () => {
+        if (scrollContainerRef.current) {
+            const scrollLeft = scrollContainerRef.current.scrollLeft;
+            const containerWidth = scrollContainerRef.current.offsetWidth;
+            const newIndex = Math.round(scrollLeft / containerWidth);
+            setCurrentImage(newIndex);
+        }
     };
 
-    const handleRightArrow = () => {
-        setCurrentImage(prevCount => prevCount === maxImageIndex ? 0 : prevCount + 1);
-    };
+    useEffect(() => {
+        const scrollContainer = scrollContainerRef.current;
+        if (scrollContainer) {
+            scrollContainer.addEventListener('scroll', handleScroll);
+        }
+        return () => {
+            if (scrollContainer) {
+                scrollContainer.removeEventListener('scroll', handleScroll);
+            }
+        };
+    }, [])
 
     return (
+
         <div className={`rounded-lg  overflow-hidden w-full  relative [font-family:Inter]`}>
-            {/* Image section */}
-            <section className="relative w-full h-[319px] overflow-hidden">
-                {/* Image Container */}
-                <div
-                    className="flex transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentImage * 100}%)` }}
-                >
+            {/* Image section with scroll snapping */}
+            <section
+                className="relative w-full h-[319px] overflow-x-scroll scroll-smooth snap-x snap-mandatory scroll-hidden"
+                ref={scrollContainerRef}
+            >
+                <div className="flex">
                     {imageUrls.map((url, index) => (
-                        <div key={index} className="w-full h-[319px] object-cover  relative flex-shrink-0">
+                        <div
+                            key={index}
+                            className="w-full h-[319px] relative flex-shrink-0 snap-center"
+                        >
                             <Image
                                 src={url}
                                 alt="Studio setup"
                                 fill
-                                className='rounded-lg'
+                                priority
+                                className="rounded-lg object-cover"
                             />
                         </div>
                     ))}
                 </div>
-
-
-
-                {/* Left Arrow */}
-                <button
-                    className="absolute top-[50%] left-2 bg-[#FAFAFB] text-black p-2 rounded-full border border-gray-300 opacity-80"
-                    onClick={handleLeftArrow}
-                >
-                    <Image alt='last image' src="/icons/leftArrow.svg" width={20} height={20} />
-                </button>
-
-                {/* Right Arrow */}
-                <button
-                    className="absolute top-[50%] right-2 bg-[#FAFAFB] text-black p-2 rounded-full border border-gray-300 opacity-80"
-                    onClick={handleRightArrow}
-                >
-                    <Image alt='next image' src="/icons/rightArrow.svg" width={20} height={20} />
-                </button>
-
-                {/* Dots */}
-                <div className="flex justify-center w-full absolute bottom-2">
-                    {imageUrls.map((_, index) => (
-                        <div
-                            key={index}
-                            className={`w-[7px] h-[7px] rounded-full bg-white mx-[3px] ${currentImage === index ? 'opacity-100' : 'opacity-60'}`}
-                        />
-                    ))}
-                </div>
             </section>
+
+            {/* Display current image number */}
+            <div className="absolute text-xs w-[36px] h-[20px] bg-opacity-80 text-center bg-neutral-900 rounded-md bottom-[130px]   right-[10px] inter-for-carousel-text centerAll">
+                <p >{`${currentImage + 1}/${imageUrls.length}`}</p>
+            </div>
 
             {/* Text and Details */}
             <section className="mt-[10px] px-[14px]">

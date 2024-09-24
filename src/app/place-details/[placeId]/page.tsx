@@ -46,7 +46,7 @@ const DetailsPage = ({ params }: { params: Params }) => {
         <DetailsPageCalendar />
 
 
-        <DetailsPageReviews placeId={params.placeId} />
+        {/* <DetailsPageReviews placeId={params.placeId} /> */}
 
       </Provider>
 

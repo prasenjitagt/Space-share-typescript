@@ -9,7 +9,7 @@ const DetailsPageReviewCard: React.FC<eachReview> = (props: eachReview) => {
     const maxRating = 5; // Assuming max rating is 5
 
     return (
-        <div className='w-[286px] h-[164px] bg-neutral-400 rounded-[17px] pt-[19px] pb-[14px] pl-[18px] pr-[23px]'>
+        <div className='w-[280px] h-[164px] bg-neutral-400 rounded-[17px] pt-[19px] pb-[14px] pl-[18px] pr-[23px]'>
             {/* Rating Stars */}
             <section>
                 {/* Reviews */}

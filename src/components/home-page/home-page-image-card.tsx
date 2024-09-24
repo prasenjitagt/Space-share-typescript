@@ -79,8 +79,8 @@ const HomePageImageCard: React.FC<PropType> = (props: PropType) => {
             </section>
 
             {/* Display current image number */}
-            <div className="absolute text-xs w-[27px] h-[15px] text-center bg-neutral-900 bottom-[125px] border-[0.5px] rounded-none border-neutral-200 right-2 text-neutral-200 centerAll">
-                <p>{`${currentImage + 1}/${imageUrls.length}`}</p>
+            <div className="absolute text-xs w-[36px] h-[20px] bg-opacity-80 text-center bg-neutral-900  bottom-[130px]  right-[10px] rounded-md inter-for-carousel-text centerAll">
+                <p >{`${currentImage + 1}/${imageUrls.length}`}</p>
             </div>
 
             {/* For Sale */}
