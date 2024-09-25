@@ -1,9 +1,13 @@
 import React from 'react';
-import Amenities, { eachAmenity } from '@/data/amenitiesData';
+import { eachAmenity } from '@/data/amenitiesData';
 import Places, { eachPlace } from '@/data/homePageData';
 import { getAmenitiesByIds, ReturnInterface } from '@/utils/amenitiesUtils';
 import Image from 'next/image';
 import DividerLine from '../small-components/divider-line';
+import DetailsPageShowAllAmenitiesButton from './details-page-show-amenities-button';
+
+
+
 interface Props {
     placeId: string;
 }
@@ -64,9 +68,8 @@ const DetailsPageAmenities: React.FC<Props> = ({ placeId }: Props) => {
 
 
                 {
-                    amenityCount <= 5 ? null : <ShowAllAmenitiesButton amenityCount={amenityCount} />
+                    amenityCount <= 5 ? null : <DetailsPageShowAllAmenitiesButton amenityCount={amenityCount} />
                 }
-
 
 
 
@@ -85,19 +88,5 @@ export default DetailsPageAmenities;
 
 
 
-interface AmenityCountProp {
-    amenityCount: number
-}
 
-export const ShowAllAmenitiesButton: React.FC<AmenityCountProp> = ({ amenityCount }: AmenityCountProp): React.JSX.Element => {
-    return (
-        <div className='centerAll w-full my-[24px] inter-regular'>
-            <button className='border-[#0A0A0A] border-[1px] rounded-[6px] px-[24px]
-                    py-[12px] text-[16px]'>
-                {`Show all ${amenityCount} amenities`}
-            </button>
-
-        </div>
-    )
-}
 
