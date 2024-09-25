@@ -4,7 +4,7 @@ import Slider from 'react-slick'
 // In your _app.js or component
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { eachReview } from '@/data/reviewsData';
+import { eachReview } from '@/data/reviews-data';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/app/store';
 import DetailsPageReviewCard from '@/components/details-page/details-page-review-card';

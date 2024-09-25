@@ -1,4 +1,4 @@
-import Amenities, { eachAmenity } from '@/data/amenitiesData';
+import Amenities, { eachAmenity } from '@/data/amenities-data';
 
 export interface ReturnInterface {
     amenities: eachAmenity[],

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import DividerLine from '../small-components/divider-line';
-import { eachAmenity } from '@/data/amenitiesData';
-import Places, { eachPlace } from '@/data/homePageData';
+import { eachAmenity } from '@/data/amenities-data';
+import Places, { eachPlace } from '@/data/place-data';
 import { getAmenitiesByIds, ReturnInterface } from '@/utils/amenitiesUtils';
 
 interface Props {
@@ -63,7 +63,7 @@ const DetailsPageAmenities: React.FC<Props> = ({ placeId }: Props) => {
                 {amenityCount > 5 && (
                     <div className='centerAll w-full my-[24px] inter-regular'>
                         <button
-                            className='border-[#0A0A0A] border-[1px] rounded-[6px] px-[24px] py-[12px] text-[16px]'
+                            className='w-[210px] border-[#0A0A0A] border-[1px] rounded-[6px] px-[24px] py-[12px] text-[16px] '
                             onClick={toggleSheet}
                         >
                             {`Show all ${amenityCount} amenities`}

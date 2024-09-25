@@ -1,11 +1,9 @@
 // 'use client';
 
-
 // import { useState } from 'react';
 // import Image from 'next/image';
 // import { useRouter } from 'next/navigation';
 // import { firstLetterToUpperCase } from '@/utils/homeImageCardUtils'
-
 
 // export interface Props {
 //     id: string,
@@ -19,9 +17,7 @@
 
 // const HomeImageCard = (props: Props) => {
 
-
 //     const imageUrls = props.images;
-
 
 //     const maxImageIndex = imageUrls.length - 1;
 //     const [currentImage, setCurrentImage] = useState(0);
@@ -47,9 +43,6 @@
 
 //     }
 
-
-
-
 //     return (
 //         <div
 //             className={`rounded-lg overflow-hidden w-[360px] bg-[#FAFAFB] relative cursor-pointer border-[0.5px]`}
@@ -64,7 +57,6 @@
 //                 <div
 //                     className="flex transition-transform duration-500 ease-in-out "
 //                     style={{ transform: `translateX(-${currentImage * 100}%)` }}
-
 
 //                 >
 //                     {imageUrls.map((url, index) => (
@@ -125,7 +117,6 @@
 //             {/* Text and Details */}
 //             <section className="mt-[10px] px-[14px]">
 
-
 //                 {/* Logic for first letter to be upper cased */}
 //                 <h3 className=" inter-medium whitespace-nowrap overflow-hidden text-ellipsis h-[30px] ">{firstLetterToUpperCase(props.nameOfPlace)}</h3>
 
@@ -133,11 +124,9 @@
 //                 <div className="flex items-center mb-[25px]  opacity-80">
 //                     <Image alt='location' src="/icons/location.svg" width={20} height={20} />
 
-
 //                     {/* Logic for first letter to be upper cased */}
 //                     <p className='ml-[3px] inter-regular whitespace-nowrap overflow-hidden text-ellipsis '>{firstLetterToUpperCase(props.location)}</p>
 //                 </div>
-
 
 //                 {/* Review,People Count, Price */}
 //                 <div className='flex justify-between items-center mb-[9px]'>

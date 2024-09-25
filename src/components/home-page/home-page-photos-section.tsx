@@ -1,6 +1,6 @@
 import React from 'react'
 import HomePageImageCard from './home-page-image-card.tsx'
-import Places, { eachPlace } from '../../data/homePageData.ts'
+import Places, { eachPlace } from '../../data/place-data.ts'
 
 
 

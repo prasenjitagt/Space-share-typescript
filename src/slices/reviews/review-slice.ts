@@ -1,6 +1,6 @@
 
 
-import { reviews, eachReview } from '@/data/reviewsData'
+import { reviews, eachReview } from '@/data/reviews-data'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 

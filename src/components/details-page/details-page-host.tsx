@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import '@/stylesheets/details-page-host.css';
 import DividerLine from '../small-components/divider-line';
-import { eachHost } from '@/data/hostData';
+import { eachHost } from '@/data/host-data';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/app/store';
 

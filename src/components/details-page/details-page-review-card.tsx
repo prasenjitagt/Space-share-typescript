@@ -1,4 +1,4 @@
-import { eachReview } from '@/data/reviewsData';
+import { eachReview } from '@/data/reviews-data';
 import React from 'react';
 import Image from 'next/image';
 import { DateToStringConverter } from '@/utils/details-page-review-card-utils';

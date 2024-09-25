@@ -3,7 +3,7 @@
 import { RootState } from "@/app/store"
 import React from "react"
 import { useSelector } from "react-redux"
-import { eachPlace, OperatingHours } from '@/data/homePageData'
+import { eachPlace, OperatingHours } from '@/data/place-data'
 import DividerLine from "../small-components/divider-line"
 
 

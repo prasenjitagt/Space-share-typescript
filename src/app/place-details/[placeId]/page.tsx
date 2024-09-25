@@ -12,13 +12,15 @@ import DetailsPageCalendar from '@/components/details-page/details-page-calender
 import DetailsPageReviews from '@/components/details-page/details-page-reviews';
 import DetailsPagePhotoSection from '@/components/details-page/details-page-photo-section';
 import DetailsPageHost from '@/components/details-page/details-page-host';
+import DetailsPageAbout  from '@/components/details-page/details-page-about';
+import React from 'react';
 
 
-interface Params {
-  placeId: string
+interface PropType {
+  params : { placeId:string }
 }
 
-const DetailsPage = ({ params }: { params: Params }) => {
+const DetailsPage: React.FC<PropType> = ({ params }: PropType) => {
 
 
   const placeId = params.placeId;
@@ -33,6 +35,8 @@ const DetailsPage = ({ params }: { params: Params }) => {
         <DetailsPagePhotoSection placeId={placeId} />
 
         <DetailsPageHost placeId={placeId} />
+        
+        <DetailsPageAbout placeId={placeId}/>
 
         <DetailsPageAmenities placeId={placeId} />
 

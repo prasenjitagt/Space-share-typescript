@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction, nanoid } from "@reduxjs/toolkit";
-import Places from "@/data/homePageData";
 
-import { eachPlace } from "@/data/homePageData";
+import Places, { eachPlace } from "@/data/place-data";
 
 interface eachPlaceState {
     slicePlaces: eachPlace[]
@@ -15,11 +14,16 @@ const placesSlice = createSlice({
     name: 'places',
     initialState: placeInitialState,
     reducers: {
-        removePlace: (state, action: PayloadAction<{ id: string }>) => {
+        removePlace: (
+            state,
+            action: PayloadAction<{ placeId: string }>
+            ) => {
 
             console.log('remove Trigreed');
 
-        }
+        },
+
+        
     }
 })
 

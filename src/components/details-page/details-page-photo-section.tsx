@@ -1,6 +1,6 @@
 
 import DetailsPageImageCard from './details-page-image-card'
-import Places, { eachPlace } from '@/data/homePageData'
+import Places, { eachPlace } from '@/data/place-data'
 
 
 interface PropsType {

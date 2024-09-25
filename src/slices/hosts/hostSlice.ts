@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction, nanoid } from "@reduxjs/toolkit";
-import { eachHost, Hosts } from '@/data/hostData';
+import { eachHost, Hosts } from '@/data/host-data';
 
 interface eachHostState {
     sliceHosts: eachHost[]
