@@ -74,7 +74,6 @@ const DetailsPageAmenities: React.FC<Props> = ({ placeId }: Props) => {
 
 
 
-
             </section>
 
 
