@@ -52,14 +52,14 @@ const DetailsPageAbout: React.FC<PropType> = ({ placeId }: PropType) => {
             <h3 className='mx-[14px] mb-[17px] inter-medium'>About This Place</h3>
 
             {/* Display truncated text */}
-            <p className='mb-[17px] ml-[14px] mr-[5px] inter-for-about my-line-clamp'>
+            <p className='mb-[2px] ml-[14px] mr-[5px] inter-for-about my-line-clamp'>
                 {thisPlaceAbout}
             </p>
 
             {/* Button to open the full details in bottom sheet */}
             <button 
                 onClick={toggleSheet} 
-                className='mx-[14px] text-[#146EF5] font-semibold underline underline-offset-4 underline-[#146EF5]'
+                className='mx-[14px] text-neutral-600  font-semibold underline underline-offset-4 underline-[#146EF5]'
             >
                 {`see more >`}
             </button>

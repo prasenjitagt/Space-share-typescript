@@ -8,6 +8,8 @@ import { motion } from 'framer-motion';
 
 interface PropType {
     placeId: string;
+    setIsBottomSheetOpen : React.Dispatch<React.SetStateAction<boolean>>;
+
 }
 
 const DetailsPageReviews: React.FC<PropType> = (props: PropType) => {
@@ -30,6 +32,8 @@ const DetailsPageReviews: React.FC<PropType> = (props: PropType) => {
 
     const toggleSheet = () => {
         setIsSheetOpen(prev => !prev);
+        props.setIsBottomSheetOpen(prev => !prev);
+
     };
 
     // Prevent background scrolling when bottom sheet is open
@@ -56,7 +60,7 @@ const DetailsPageReviews: React.FC<PropType> = (props: PropType) => {
             </div>
 
             <div>
-                {placeSpecificReviews.slice(0, 5).map((eachReview: eachReview, index: number) => {
+                {placeSpecificReviews.slice(0, 3).map((eachReview: eachReview, index: number) => {
                     const { placeId, reviewRating, reviewText, reviewerExperienceInYears, reviewerImageLink, reviewerName, reviewDate } = eachReview;
                     return (
                         <DetailsPageReviewCard
@@ -79,7 +83,7 @@ const DetailsPageReviews: React.FC<PropType> = (props: PropType) => {
             {/* Blurred background overlay */}
             {isSheetOpen && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"
+                    className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10"
                     onClick={toggleSheet}
                 />
             )}
@@ -89,7 +93,7 @@ const DetailsPageReviews: React.FC<PropType> = (props: PropType) => {
                 initial={{ y: '100%' }}
                 animate={{ y: isSheetOpen ? '0%' : '100%' }}
                 transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                className="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-50 rounded-t-[20px] max-h-[80vh] overflow-y-auto border-t-[1px] border-neutral-400"
+                className="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-20 rounded-t-[20px] max-h-[80vh] overflow-y-auto border-t-[1px] border-neutral-400"
             >
                 <div className="px-[24px]">
                     <div className="my-[10px] flex justify-between items-center">

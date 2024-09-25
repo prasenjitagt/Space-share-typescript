@@ -24,6 +24,24 @@ export const reviews: eachReview[] = [
     },
     {
         placeId: "01",
+        reviewerName: "Subhankar Sarkar",
+        reviewerImageLink: "1.jpeg",
+        reviewRating: "4",
+        reviewerExperienceInYears: 2,
+        reviewText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis doloremque omnis accusamus numquam impedit tenetur nisi repellat? Adipisci, harum? Nemo.",
+        reviewDate: new Date('09/24/2010')
+    },
+    {
+        placeId: "01",
+        reviewerName: "Subhankar Sarkar",
+        reviewerImageLink: "1.jpeg",
+        reviewRating: "4",
+        reviewerExperienceInYears: 2,
+        reviewText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis doloremque omnis accusamus numquam impedit tenetur nisi repellat? Adipisci, harum? Nemo.",
+        reviewDate: new Date('09/24/2010')
+    },
+    {
+        placeId: "01",
         reviewerName: "Prasenjit Das",
         reviewerImageLink: "2.jpeg",
         reviewRating: "3",
