@@ -11,21 +11,10 @@ export const getAmenitiesByIds = (amenityIds: string[]): ReturnInterface => {
 
     const amenityCount = allAmenities.length;
 
-    if (allAmenities.length <= 5) {
-
         return {
             amenities: allAmenities,
             amenityCount
         };
-    } else {
 
-
-        return {
-            // Animities shortened to 5 numbers
-            amenities: allAmenities.slice(0, 5),
-            amenityCount
-        };
-
-    }
 
 };
