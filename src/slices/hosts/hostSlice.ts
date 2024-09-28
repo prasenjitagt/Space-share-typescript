@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, nanoid } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { eachHost, Hosts } from '@/data/host-data';
 
 interface eachHostState {
@@ -15,7 +15,7 @@ const hostsSlice = createSlice({
     reducers: {
         removeHost: (state, action: PayloadAction<{ id: string }>) => {
 
-            console.log('remove Trigreed');
+            console.log(action.payload.id, state.sliceHosts);
 
         }
     }

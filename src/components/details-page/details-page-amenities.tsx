@@ -8,22 +8,17 @@ import { getAmenitiesByIds, ReturnInterface } from '@/utils/amenitiesUtils';
 
 interface Props {
     placeId: string;
-    setIsBottomSheetOpen : React.Dispatch<React.SetStateAction<boolean>>;
+    setIsBottomSheetOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const DetailsPageAmenities: React.FC<Props> = ({ placeId,setIsBottomSheetOpen }: Props) => {
+const DetailsPageAmenities: React.FC<Props> = ({ placeId, setIsBottomSheetOpen }: Props) => {
     const [isSheetOpen, setIsSheetOpen] = useState(false); // state for bottom sheet
 
     const place = Places.find((place: eachPlace) => place.id === placeId);
 
-    if (!place) return <p>Place not found</p>;
-
-    const amenitiesForPlace: ReturnInterface = getAmenitiesByIds(place.amenityIds);
-    const { amenities, amenityCount } = amenitiesForPlace;
-
     const toggleSheet = () => {
-        setIsSheetOpen(prev => !prev);
-        setIsBottomSheetOpen(prev => !prev);
+        setIsSheetOpen((prev) => !prev);
+        setIsBottomSheetOpen((prev) => !prev);
     };
 
     // Prevent background scrolling when bottom sheet is open
@@ -33,11 +28,16 @@ const DetailsPageAmenities: React.FC<Props> = ({ placeId,setIsBottomSheetOpen }:
         } else {
             document.body.style.overflow = ''; // Restore scrolling
         }
-        // Cleanup to ensure scrolling is restored if component is unmounted
         return () => {
             document.body.style.overflow = '';
         };
     }, [isSheetOpen]);
+
+    // Ensure that useEffect is always called, regardless of whether the place exists
+    if (!place) return <p>Place not found</p>;
+
+    const amenitiesForPlace: ReturnInterface = getAmenitiesByIds(place.amenityIds);
+    const { amenities, amenityCount } = amenitiesForPlace;
 
     return (
         <div className="inter-global mx-[13px]">
@@ -103,14 +103,11 @@ const DetailsPageAmenities: React.FC<Props> = ({ placeId,setIsBottomSheetOpen }:
 
                     <DividerLine />
 
-
                     <div className="mt-[14px]">
                         {amenities.map((amenity: eachAmenity) => {
                             const { amenityIconName, amenityId, amenityName } = amenity;
                             return (
                                 <div key={amenityId} className="flex items-center mb-[10px]">
-
-
                                     <Image
                                         className="mr-[12px]"
                                         src={`/icons/${amenityIconName}`}
@@ -118,8 +115,6 @@ const DetailsPageAmenities: React.FC<Props> = ({ placeId,setIsBottomSheetOpen }:
                                         width={25}
                                         height={25}
                                     />
-
-                                    
                                     <p className="text-[16px] inter-regular font-[300]">{amenityName}</p>
                                 </div>
                             );

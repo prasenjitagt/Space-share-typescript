@@ -29,6 +29,7 @@ const DetailsPageMap = () => {
             const position = { lat: 23.785450, lng: 91.261247 };
 
             const mapOptions: google.maps.MapOptions = {
+
                 center: position,
                 zoom: 17,
                 mapId: 'details-page-map-id',
@@ -39,10 +40,13 @@ const DetailsPageMap = () => {
             const map = new Map(mapRef.current as HTMLDivElement, mapOptions);
 
             //Place the marker
-            const marker = new AdvancedMarkerElement({
+            new AdvancedMarkerElement({
                 map: map,
                 position: position
             });
+
+            // console.log(marker);
+
 
         }
 

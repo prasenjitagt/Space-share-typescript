@@ -21,15 +21,15 @@ interface PropType {
 const DetailsPage: React.FC<PropType> = ({ params }: PropType) => {
   const placeId = params.placeId;
 
-  const [isBottomSheetOpen, setIsBottomSheetOpen]  = useState<boolean>(false);
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState<boolean>(false);
 
   return (
     <Provider store={store}> {/* Wrap the entire component inside Provider */}
       <div className=" mx-0 mt-0 mb-[130px] p-0">
-        <div 
-          style={isBottomSheetOpen ? {display:'none'} : {display:'block'}}
-        className="w-full   fixed bottom-0 z-50">
-        <DetailsPagePrice/>
+        <div
+          style={isBottomSheetOpen ? { display: 'none' } : { display: 'block' }}
+          className="w-full   fixed bottom-0 z-50">
+          <DetailsPagePrice />
         </div>
 
         {/* Main Content */}

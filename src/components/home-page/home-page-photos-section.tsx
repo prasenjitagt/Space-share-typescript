@@ -12,7 +12,7 @@ const HomePagePhotosSection = () => {
 
     Places.map((place: eachPlace) => {
 
-      const { areaInSqft, id, images, location, nameOfPlace, peopleCount, price, reviewCount } = place;
+      const { id, images, location, nameOfPlace, peopleCount, price, reviewCount } = place;
 
 
       return (

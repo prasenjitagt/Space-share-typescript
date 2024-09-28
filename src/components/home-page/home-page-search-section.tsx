@@ -12,6 +12,9 @@ const HomePageSearchSection = () => {
     const handleSelect1 = (option: string): void => {
         setSelectedOption1(option);
         console.log('Dropdown 1 selected:', option);
+
+        console.log(selectedOption2, selectedOption1);
+
     };
 
     const handleSelect2 = (option: string): void => {

@@ -1,10 +1,10 @@
 import { eachReview } from '@/data/reviews-data';
 import React from 'react';
 import Image from 'next/image';
-import { DateToStringConverter } from '@/utils/details-page-review-card-utils';
+// import { DateToStringConverter } from '@/utils/details-page-review-card-utils';
 
 const DetailsPageReviewCard: React.FC<eachReview> = (props: eachReview) => {
-    const { reviewRating, reviewText, reviewerExperienceInYears, reviewerImageLink, reviewerName, reviewDate } = props;
+    const { reviewRating, reviewText, reviewerExperienceInYears, reviewerImageLink, reviewerName } = props;
 
     const rating = parseInt(reviewRating, 10); // Convert rating string to number
     const maxRating = 5; // Assuming max rating is 5

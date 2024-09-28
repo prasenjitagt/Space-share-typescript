@@ -22,7 +22,8 @@ const reviewsSlice = createSlice({
     reducers: {
         removeReview: (state, action: PayloadAction<{ id: string }>) => {
 
-            console.log('review removed');
+            console.log(action.payload.id, state.sliceReviews);
+
 
         }
     }

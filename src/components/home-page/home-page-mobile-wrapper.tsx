@@ -1,7 +1,11 @@
 'use client'
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
-const HomePageMobileWrapper = ({ children }: any) => {
+interface PropType {
+    children: ReactNode
+}
+
+const HomePageMobileWrapper = ({ children }: PropType) => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {

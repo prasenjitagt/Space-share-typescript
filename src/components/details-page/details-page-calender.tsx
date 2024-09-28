@@ -14,11 +14,11 @@ const MyCalendar: React.FC = () => {
 
     const [date, setDate] = useState<Value>(new Date());
 
-    const selectedDate = date as Date;
+    // const selectedDate = date as Date;
 
     return (
         <div className="centerAll mx-[13px]">
-            <Calendar
+            <Calendar selectRange={true}
                 onChange={setDate}
                 value={date}
                 className="react-calendar bg-white rounded-[17px]"

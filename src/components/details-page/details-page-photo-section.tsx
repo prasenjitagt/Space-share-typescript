@@ -15,7 +15,7 @@ const DetailsPagePhotoSection: React.FC<PropsType> = (props: PropsType) => {
         Places.filter((place: eachPlace) => place.id === props.placeId)
             .map((place: eachPlace) => {
 
-                const { areaInSqft, id, images, location, nameOfPlace, peopleCount, price, reviewCount } = place;
+                const { areaInSqft, id, images, location, nameOfPlace, peopleCount, reviewCount } = place;
 
                 return (
                     <div key={id} className='flex flex-col items-center mx-[13px] '>
