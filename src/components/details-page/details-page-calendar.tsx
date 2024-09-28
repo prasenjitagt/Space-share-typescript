@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import '@/stylesheets/details-page-calendar.css'
 
 const MyCalendar: React.FC = () => {
 
@@ -10,23 +11,20 @@ const MyCalendar: React.FC = () => {
 
     type Value = ValuePiece | [ValuePiece, ValuePiece];
 
-
-
-    const [date, setDate] = useState<Value>(new Date());
-
-    // const selectedDate = date as Date;
+    // Initialize with today's date as the minimum selectable date
+    const [date, setDate] = useState<Value | null>(null);
 
     return (
         <div className="centerAll mx-[13px]">
-            <Calendar selectRange={true}
+            <Calendar
                 onChange={setDate}
                 value={date}
+                minDate={new Date()} // Restrict date selection to today onwards
                 className="react-calendar bg-white rounded-[17px]"
-
             />
 
             {/* Divider */}
-            <div className="h-[1px] my-[24px] w-full bg-slate-500 opacity-20 " ></div>
+            <div className="h-[1px] my-[24px] w-full bg-slate-500 opacity-20"></div>
         </div>
     );
 };

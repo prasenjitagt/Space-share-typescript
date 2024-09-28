@@ -58,6 +58,7 @@
 
 
 
+
 @layer utilities {
     .carouselArrow {
         @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-all duration-300

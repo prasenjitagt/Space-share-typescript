@@ -1,0 +1,63 @@
+/* Tiles (Days) Style */
+.react-calendar__tile {
+    border-radius: 50% !important;
+    /* Ensures tiles are circular */
+    height: 50px;
+    /* Set a fixed height for uniformity */
+    width: 50px;
+    /* Set a fixed width for uniformity */
+    display: flex;
+    /* Center content */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    background: transparent;
+    /* Make background transparent */
+    border: none;
+    /* Remove any default border */
+    transition: background-color 0.3s;
+    /* Smooth transition for hover effects */
+}
+
+/* Style for today's date */
+.react-calendar__tile--now {
+    color: black !important;
+    /* Set the text color for today */
+    background-color: rgb(253, 192, 127);
+    /* Background color for today */
+}
+
+/* Style for active date */
+.react-calendar__tile--active {
+    color: white !important;
+    /* Ensure text color is visible */
+}
+
+/* Year-switching Buttons Style */
+.react-calendar__navigation button {
+    border-radius: 50% !important;
+    /* Make buttons circular */
+    width: 50px;
+    /* Adjust for smaller buttons */
+    height: 50px;
+    /* Adjust for smaller buttons */
+    background: transparent;
+    /* Make background transparent */
+    border: none;
+    /* Remove any default border */
+    display: flex;
+    /* Center content */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    transition: background-color 0.3s;
+    /* Smooth transition for hover effects */
+}
+
+/* Optional: Add hover effect for navigation buttons */
+.react-calendar__navigation button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Light gray on hover */
+}

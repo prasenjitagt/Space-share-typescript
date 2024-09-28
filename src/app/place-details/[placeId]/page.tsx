@@ -5,7 +5,7 @@ import DetailsPageNav from '@/components/details-page/details-page-nav';
 import DetailsPageMap from '@/components/details-page/details-page-map';
 import DetailsPageOperatingHours from '@/components/details-page/details-page-operating-hours';
 import store from '@/app/store';
-import DetailsPageCalendar from '@/components/details-page/details-page-calender';
+import DetailsPageCalendar from '@/components/details-page/details-page-calendar';
 import DetailsPageReviews from '@/components/details-page/details-page-reviews';
 import DetailsPagePhotoSection from '@/components/details-page/details-page-photo-section';
 import DetailsPageHost from '@/components/details-page/details-page-host';
