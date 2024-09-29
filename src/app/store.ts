@@ -3,6 +3,7 @@ import reviewsSliceReducer from '@/slices/reviews/review-slice';
 import hostsSliceReducer from '@/slices/hosts/hostSlice';
 import { configureStore } from '@reduxjs/toolkit'
 import SelectedDateSliceReducer from '@/slices/places/current-place-slice';
+import userSliceReducer from '@/slices/users/userSlice';
 
 
 const store = configureStore({
@@ -11,6 +12,7 @@ const store = configureStore({
         storeReviews: reviewsSliceReducer,
         storeHosts: hostsSliceReducer,
         storeSelectedDate: SelectedDateSliceReducer,
+        storeUsers: userSliceReducer
     }
 });
 
