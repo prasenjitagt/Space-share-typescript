@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import '@/stylesheets/details-page-price.css';
 import { useSelector } from 'react-redux';
 import { EachSelectedDate } from '@/slices/places/current-place-slice';
 import { RootState } from '@/app/store';
-import MyCalendar from '@/components/details-page/details-page-calendar';
 import Image from 'next/image';
+import DetailsPageBottomSheetCalendar from './details-page-bottom-sheet-calendar';
 
 interface PropType {
     placeId: string;
 }
 
 const DetailsPageBottomSheet: React.FC<PropType> = ({ placeId }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const selectedDate: EachSelectedDate | undefined = useSelector((state: RootState) => {
         return state.storeSelectedDate.sliceSelectedDates.find(
             (eachSelectedDate: EachSelectedDate) => eachSelectedDate.SelectedDateId === placeId
@@ -20,9 +20,9 @@ const DetailsPageBottomSheet: React.FC<PropType> = ({ placeId }) => {
     });
 
     const formatDate = (dateString: string): string => {
-        const date = new Date(dateString); // Convert string back to Date
+        const date = new Date(dateString);
         const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short', year: '2-digit' };
-        return date.toLocaleDateString('en-US', options).replace(',', "'"); // Format: 30 Sept '24
+        return date.toLocaleDateString('en-US', options).replace(',', "'");
     };
 
     const handleOpenModal = () => {
@@ -33,33 +33,47 @@ const DetailsPageBottomSheet: React.FC<PropType> = ({ placeId }) => {
         setIsModalOpen(false);
     };
 
+    // Ref for the modal content
+    const modalRef = useRef<HTMLDivElement>(null);
+
+    // Close modal if click is outside of it
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+                handleCloseModal();
+            }
+        };
+
+        if (isModalOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isModalOpen]);
+
     return (
         <>
             <div className='flex justify-between items-center w-full h-[100px] px-[30px] py-[18px] my-shadow bg-white'>
-
-                {/* Price and Date */}
                 <section className='inter-for-price text-[20px]'>
-
-                    {/* Price */}
                     <div className='flex mb-[6px]'>
                         <p className='font-semibold'>{`₹500`}</p>
                         <p className='opacity-50'>/hour</p>
                     </div>
-
-                    {/* Date */}
                     {selectedDate ? (
                         <button className='underline underline-offset-4' onClick={handleOpenModal}>
-                            {formatDate(selectedDate.selectedDate)} {/* Convert string to Date for formatting */}
+                            {formatDate(selectedDate.selectedDate)}
                         </button>
                     ) : (
                         <button className='underline underline-offset-4 opacity-80 capitalize' onClick={handleOpenModal}>
                             {`Select a Date`}
                         </button>
                     )}
-
                 </section>
 
-                {/* Book Now */}
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.96 }}
@@ -72,22 +86,25 @@ const DetailsPageBottomSheet: React.FC<PropType> = ({ placeId }) => {
                 </motion.button>
             </div>
 
-            {/* Modal for Calendar */}
             {isModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="flex flex-col  items-center bg-transparent rounded-lg p-4 relative">
-                        {/* Close Button */}
-                        <button
+
+
+                    <div ref={modalRef} className="flex flex-col items-center bg-transparent  rounded-lg p-0 relative">
+
+
+                        {/* Close Icon */}
+
+                        {/* <button
                             onClick={handleCloseModal}
-                            className="mt-[50px] mb-[10px] mx-[13px] centerAll rounded-full bg-white w-[50px] h-[50px] border-[2px]  border-orange-600"
+                            className="mt-[50px] mb-[10px] mx-[13px] centerAll rounded-full bg-white w-[50px] h-[50px] border-[2px] border-orange-600"
                         >
                             <Image alt='close icon' src="/icons/close.svg" width={20} height={20} />
+                        </button> */}
 
-                        </button>
 
-                        {/* Calendar Component */}
-                        <MyCalendar placeId={placeId} />
 
+                        <DetailsPageBottomSheetCalendar placeId={placeId} />
                     </div>
                 </div>
             )}

@@ -12,7 +12,7 @@ interface PropType {
     placeId: string;
 }
 
-const DetailsPageCalendar: React.FC<PropType> = ({ placeId }) => {
+const DetailsPageBottomSheetCalendar: React.FC<PropType> = ({ placeId }) => {
     type ValuePiece = Date | null;
     type Value = ValuePiece | [ValuePiece, ValuePiece];
 
@@ -37,12 +37,9 @@ const DetailsPageCalendar: React.FC<PropType> = ({ placeId }) => {
                 minDate={new Date()} // Restrict date selection to today onwards
                 className="react-calendar bg-white rounded-[17px]"
             />
-
-            {/* Divider */}
-            <div className="h-[1px] my-[24px] w-full bg-slate-500 opacity-20"></div>
         </div>
     );
 };
 
-export default DetailsPageCalendar;
+export default DetailsPageBottomSheetCalendar;
 
