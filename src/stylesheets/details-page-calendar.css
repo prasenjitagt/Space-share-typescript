@@ -1,23 +1,14 @@
 /* Tiles (Days) Style */
 .react-calendar__tile {
     border-radius: 50% !important;
-    /* Ensures tiles are circular */
-    height: 50px;
-    /* Set a fixed height for uniformity */
-    width: 50px;
-    /* Set a fixed width for uniformity */
+    height: 50px !important;
+    width: 50px !important;
     display: flex;
-    /* Center content */
     align-items: center;
-    /* Center vertically */
     justify-content: center;
-    /* Center horizontally */
     background: transparent;
-    /* Make background transparent */
     border: none;
-    /* Remove any default border */
     transition: background-color 0.3s;
-    /* Smooth transition for hover effects */
 }
 
 /* Style for today's date */
@@ -28,11 +19,7 @@
     /* Background color for today */
 }
 
-/* Style for active date */
-.react-calendar__tile--active {
-    color: white !important;
-    /* Ensure text color is visible */
-}
+
 
 /* Year-switching Buttons Style */
 .react-calendar__navigation button {

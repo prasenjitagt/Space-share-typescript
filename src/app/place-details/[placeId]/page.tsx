@@ -12,7 +12,7 @@ import DetailsPageHost from '@/components/details-page/details-page-host';
 import DetailsPageAbout from '@/components/details-page/details-page-about';
 import React, { useState } from 'react';
 import { Provider } from 'react-redux'; // Provider should be at the top level
-import DetailsPagePrice from '@/components/details-page/details-page-price';
+import DetailsPageBottomSheet from '@/components/details-page/details-page-bottom-sheet';
 
 interface PropType {
   params: { placeId: string };
@@ -29,7 +29,7 @@ const DetailsPage: React.FC<PropType> = ({ params }: PropType) => {
         <div
           style={isBottomSheetOpen ? { display: 'none' } : { display: 'block' }}
           className="w-full   fixed bottom-0 z-50">
-          <DetailsPagePrice />
+          <DetailsPageBottomSheet placeId={placeId} />
         </div>
 
         {/* Main Content */}
@@ -47,7 +47,7 @@ const DetailsPage: React.FC<PropType> = ({ params }: PropType) => {
 
         <DetailsPageOperatingHours placeId={placeId} />
 
-        <DetailsPageCalendar />
+        <DetailsPageCalendar placeId={placeId} />
 
         <DetailsPageReviews setIsBottomSheetOpen={setIsBottomSheetOpen} placeId={placeId} />
 
