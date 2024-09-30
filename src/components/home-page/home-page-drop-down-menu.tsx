@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 
@@ -9,7 +9,7 @@ interface DropdownParams {
     placeholder: string
 }
 
-const HomePageDropDown = ({ options, onSelect, placeholder }: DropdownParams) => {
+const HomePageDropDown: React.FC<DropdownParams> = ({ options, onSelect, placeholder }: DropdownParams) => {
 
 
     const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,7 @@ const HomePageDropDown = ({ options, onSelect, placeholder }: DropdownParams) =>
 
     return (
         <>
-            <div onClick={toggleDropdown} className="w-full rounded-full mt-[3.65px] pl-[16px] pr-[12px] py-[11px]  bg-[#FAFAFB]">
+            <div onClick={toggleDropdown} className="w-[319px] rounded-full mt-[3.65px] pl-[16px] pr-[12px] py-[11px]  bg-[#FAFAFB] ">
 
                 {/* button and icon */}
                 <div className="flex justify-between">

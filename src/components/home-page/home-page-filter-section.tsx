@@ -1,7 +1,7 @@
 
 const HomePageFilterSection = () => {
     return (
-        <div className="mx-[27px] mb-[14px] flex flex-col">
+        <div className=" mb-[14px] flex flex-col">
 
 
             <div className="flex justify-between">

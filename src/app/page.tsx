@@ -9,16 +9,16 @@ import '@/app/globals.css'
 const Home = () => {
 
   return (
-    <>
-      <Provider store={store}>
+    <Provider store={store}>
+      <div className=" px-[13px] ">
 
         {/* Home Page */}
         <HomePageSearchSection />
         <HomePageFilterSection />
         <HomePagePhotosSection />
 
-      </Provider>
-    </>
+      </div>
+    </Provider>
   )
 
 

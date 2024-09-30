@@ -1,13 +1,34 @@
 
 'use client'
-import { useState } from 'react'
+
+import { useState, useEffect } from 'react'
 import Image from 'next/image';
 import HomePageMobileWrapper from './home-page-mobile-wrapper';
 import HomePageDropDown from './home-page-drop-down-menu';
+import { motion } from 'framer-motion';
+import DividerLine from '../small-components/divider-line';
+import HomePageFilterSection from './home-page-filter-section';
 
 const HomePageSearchSection = () => {
-    const [selectedOption1, setSelectedOption1] = useState("");
-    const [selectedOption2, setSelectedOption2] = useState("");
+    const [selectedOption1, setSelectedOption1] = useState<string>("");
+    const [selectedOption2, setSelectedOption2] = useState<string>("");
+    const [isSheetOpen, setIsSheetOpen] = useState<boolean>(false); // state for bottom sheet
+
+    const toggleSheet = () => {
+        setIsSheetOpen((prev) => !prev);
+    };
+
+    // Prevent background scrolling when bottom sheet is open
+    useEffect(() => {
+        if (isSheetOpen) {
+            document.body.style.overflow = 'hidden'; // Disable scrolling
+        } else {
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isSheetOpen]);
 
     const handleSelect1 = (option: string): void => {
         setSelectedOption1(option);
@@ -32,39 +53,81 @@ const HomePageSearchSection = () => {
 
 
                 {/* search bar  */}
-                <section className=' w-full  py-[15px] flex flex-col justify-center px-[12]'>
+                <section className='   py-[15px] flex flex-col justify-center '>
 
                     {/* search input */}
-                    <div className=' w-full px-[27px] flex items-center'>
+                    <div className='  flex items-center'>
 
                         <div className=' py-[6px] w-full flex justify-between bg-[#FAFAFB] rounded-full '>
 
                             <input type="text" placeholder='Search' className=' rounded-full pl-[15.95px] pr-[21.59px] bg-[#FAFAFB]' />
 
 
-                            <div className='bg-black centerAll rounded-full  h-[40px] w-[40px] mr-[5px]'>
+                            <button className='bg-black centerAll rounded-full  h-[40px] w-[40px] mr-[5px]'>
                                 <Image alt='search icon' src="./icons/search.svg" width={20} height={20} />
-                            </div>
+                            </button>
 
                         </div>
 
 
-                        <div className=' border-black border-[1px] centerAll rounded-full  h-[38px] w-[43px]'>
+                        <button onClick={toggleSheet} className=' border-black border-[1px] centerAll rounded-full  h-[38px] w-[43px]'>
                             <Image
-                                alt='search icon'
+                                alt='filter icon'
                                 src="./icons/filter.svg"
                                 width={24}
                                 height={24}
                             />
-                        </div>
+                        </button>
                     </div>
+
+
+                    {/* Blurred background overlay */}
+                    {isSheetOpen && (
+                        <div
+                            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10"
+                            onClick={toggleSheet}
+                        />
+                    )}
+
+                    {/* Bottom Sheet */}
+                    <motion.div
+                        initial={{ y: '100%' }}
+                        animate={{ y: isSheetOpen ? '0%' : '100%' }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                        className="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-20 rounded-t-[20px] max-h-[80vh] overflow-y-auto border-t-[1px] border-neutral-400"
+                    >
+                        <div className="px-[24px]">
+                            <div className="my-[10px] flex justify-between items-center">
+
+                                {/* Heading */}
+                                <h3 className="text-[18px] font-medium">Filter Space</h3>
+
+                                {/* Close Icon */}
+                                <button onClick={toggleSheet} >
+                                    <Image alt='close icon' src="/icons/close.svg" width={20} height={20} />
+                                </button>
+                            </div>
+
+                            <DividerLine />
+
+                            {/* Filters */}
+                            <div className="mt-[14px] flex flex-col items-center">
+
+                                {/* Category */}
+                                <div>
+                                    <p className=' my-inter text-[18px] font-[400] mb-[14px]'>Category</p>
+                                    <HomePageFilterSection />
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
 
 
 
 
 
                     {/* dropdown section */}
-                    <div className='px-[27px]'>
+                    <div className=''>
 
                         <HomePageDropDown
                             options={['Bengalore', 'Mumbai', 'Tiruvannat Puram']}
