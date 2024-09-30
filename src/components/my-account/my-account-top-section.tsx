@@ -20,9 +20,9 @@ const MyAccountTopSection: React.FC<PropType> = ({ userId }) => {
   return (
     <>
       {currentUser ? (
-        <div className="mx-[13px] flex flex-col items-center justify-center h-[300px] check">
+        <div className="mx-[13px] flex flex-col items-center justify-center h-[250px] ">
           {/* Image Section */}
-          <div className=" w-[100px] h-[100px] rounded-full relative overflow-hidden">
+          <div className=" w-[100px] h-[100px] rounded-full  relative overflow-hidden">
             <Image
               src={`/images/${currentUser.userImageUrl}`}
               className="object-cover"
@@ -33,10 +33,17 @@ const MyAccountTopSection: React.FC<PropType> = ({ userId }) => {
           </div>
 
           {/* Name and Email */}
-          <div className="bg-white/30 rounded-lg">
-            <h1 className="text-2xl font-bold">{currentUser.userName}</h1>
-            <p className="mt-2">{currentUser.userEmail}</p>
+          <div className="bg-white/30 rounded-lg mb-[8px] mt-[10px] leading-[20px]">
+            <h1 className="my-inter font-[600] text-[22px] text-center">{currentUser.userName}</h1>
+            <p className="my-inter font-[400] text-[13px] text-center text-[#565656]">{currentUser.userEmail}</p>
           </div>
+
+          {/* Edit Profile */}
+          <button className="px-[13px] py-[8px] bg-[#EFEFEF] rounded-[37px]">
+            <p className="my-inter font-[500] text-[13px] text-center">Edit Profile</p>
+          </button>
+
+
         </div>
       ) : (
         <p>User not found</p>
