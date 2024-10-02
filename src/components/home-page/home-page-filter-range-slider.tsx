@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import '@/stylesheets/home-page-search-section.css'
 
 import { useState } from 'react';
 import { Range } from 'react-range';
