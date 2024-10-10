@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 import '@/stylesheets/login.css';
 import { countryCodes } from '@/data/country-code-data';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
-const Login = () => {
+
+const Login: React.FC = () => {
     // State to store the selected country code
     const [selectedCode, setSelectedCode] = useState('+91');
 
@@ -14,13 +16,16 @@ const Login = () => {
         setSelectedCode(e.target.value);
     }
 
+
+    const router = useRouter();
+
     return (
         <div className='mx-[23px] mt-[90px]'>
 
             {/* Heading */}
-            <p className='heading mb-[24px]'>
+            <h1 className='heading mb-[24px]'>
                 Login or Sign up
-            </p>
+            </h1>
 
             {/* Translucent-text */}
             <p className='translucent-text mb-[24px]'>
@@ -71,7 +76,9 @@ const Login = () => {
             </section>
 
             {/* Continue Button */}
-            <button className='continue-button w-full'>
+            <button onClick={() => {
+                router.push('/otp-page')
+            }} className='continue-button w-full'>
                 <p className='continue-button-text'>Continue</p>
             </button>
 

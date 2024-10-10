@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+
+.heading {
+    color: #000;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+.translucent-text {
+
+    color: var(--little-dark-gray, #646464);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+}
+
+
+.or-div {
+    background: var(--light-gray, #EAEAEA);
+    width: 154px;
+    height: 1px;
+}
+
+.or {
+    color: var(--dark-gray, #565656);
+    text-align: center;
+    font-family: Inter;
+    font-size: 15.68px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    /* 21.952px */
+    letter-spacing: 0.157px;
+}
+
+.input-section {
+    height: 59px;
+    padding: 14px 11px;
+
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 10.453px;
+    border: 1.045px solid #DADADA;
+    background: #F7F8F9;
+}
+
+
+.quick-login-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.quick-login-button {
+    display: flex;
+    width: 109.887px;
+    height: 58.607px;
+    padding: 15.698px 0px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10.465px;
+    border: 1.047px solid #DADADA;
+}
+
+.continue-button {
+    display: flex;
+    height: var(--height-56, 56px);
+    padding: 17px 152px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 10px;
+    background: var(--primary-blue, #0B74FA);
+
+}
+
+/* For Chrome, Safari, Edge, and other WebKit browsers */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.otp_case {
+    width: 61.929px;
+    height: 70.776px;
+    border-radius: 14.745px;
+    border: 0.983px solid #D8DADC;
+
+}
+
+.otp_case:focus {
+    border: 0.983px solid #000;
+
+}
