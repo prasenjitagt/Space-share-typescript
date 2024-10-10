@@ -10,6 +10,7 @@ import DividerLine from '../small-components/divider-line';
 import HomePageFilterSection from './home-page-filter-section';
 import HomePageFilterRangeSlider from './home-page-filter-range-slider';
 import HomePageFilterRating from './home-page-filter-rating';
+import HomePageFilterAmenities from './home-page-filter-amenities';
 
 const HomePageSearchSection = () => {
     const [selectedOption1, setSelectedOption1] = useState<string>("");
@@ -104,7 +105,7 @@ const HomePageSearchSection = () => {
 
 
                             {/* Header */}
-                            <div className="my-[10px] flex justify-between items-center">
+                            <div className=" my-[10px] flex justify-between items-center">
 
 
                                 {/* Restart Icon */}
@@ -171,6 +172,16 @@ const HomePageSearchSection = () => {
 
                             <DividerLine />
 
+
+                            {/* Amenities */}
+                            <section className=" my-[14px]  flex flex-col items-center">
+
+                                {/* Amenities */}
+                                <div className='w-full'>
+                                    <p className=' my-inter text-[18px] font-[400] mb-[14px]'>Amenities</p>
+                                    <HomePageFilterAmenities />
+                                </div>
+                            </section>
 
 
 
