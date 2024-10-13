@@ -2,10 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import '@/stylesheets/otp.css';
+import { useRouter } from 'next/navigation';
 
 const OTPPage: React.FC = () => {
     const [otp, setOtp] = useState(['', '', '', '']);
     const [timer, setTimer] = useState(20);
+    const [isKeyboardOpen, setIsKeyboardOpen] = useState(false); // State to track keyboard visibility
+    const router = useRouter();
 
     // Handle OTP input
     const handleChange = (value: string, index: number) => {
@@ -47,8 +50,21 @@ const OTPPage: React.FC = () => {
         return () => clearInterval(countdown);
     }, []);
 
+    // Check for keyboard visibility on window resize
+    useEffect(() => {
+        const handleResize = () => {
+            // Compare innerHeight to detect keyboard open state
+            setIsKeyboardOpen(window.innerHeight < 500); // Adjust threshold as necessary
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
-        <div className='mx-[23px] mt-[90px]'>
+        <div className={`mx-[23px] mt-[90px] ${isKeyboardOpen ? 'mb-[20px]' : 'mb-[203px]'}`}>
             {/* Heading */}
             <h1 className='heading mb-[24px]'>Enter code</h1>
 
@@ -58,13 +74,13 @@ const OTPPage: React.FC = () => {
             </p>
 
             {/* OTP Input Fields */}
-            <div className='flex space-x-2 mb-[24px]'>
+            <div className='w-full flex justify-between mb-[24px]'>
                 {otp.map((digit, index) => (
                     <input
                         key={index}
                         id={`otp-input-${index}`}
                         className='otp_case text-center text-2xl outline-none'
-                        type="number"
+                        type="tel"
                         maxLength={1}
                         value={digit}
                         onChange={(e) => handleChange(e.target.value, index)}
@@ -73,9 +89,17 @@ const OTPPage: React.FC = () => {
             </div>
 
             {/* Resend OTP Timer */}
-            <p className='text-gray-500'>
+            <p className='text-gray-500 mb-[24px] text-center'>
                 Send OTP again in <span className='text-blue-500'>{`00:${timer < 10 ? `0${timer}` : timer}`}</span>
             </p>
+
+            {/* Verify Button */}
+            <button
+                onClick={() => router.push('/otp-page')}
+                className='verify-button w-full'
+            >
+                <p className='verify-button-text'>Verify</p>
+            </button>
         </div>
     );
 };
