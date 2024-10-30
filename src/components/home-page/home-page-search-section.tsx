@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import HomePageMobileWrapper from "./home-page-mobile-wrapper";
+// import HomePageMobileWrapper from "./home-page-mobile-wrapper";
 import HomePageDropDown from "./home-page-drop-down-menu";
 
 import getAllCities from "@/utils/home-page-search-section-get-all-state-name";
@@ -11,7 +11,7 @@ import HomePageFilterBottomSheet from "./home-page-filter-bottom-sheet";
 
 const HomePageSearchSection = () => {
   const [selectedOption1, setSelectedOption1] = useState<string>("");
-  const [selectedOption2, setSelectedOption2] = useState<string>("");
+  // const [selectedOption2, setSelectedOption2] = useState<string>("");
   const [isSheetOpen, setIsSheetOpen] = useState<boolean>(false); // state for bottom sheet
 
   // all city names
@@ -36,14 +36,15 @@ const HomePageSearchSection = () => {
   const handleSelect1 = (option: string): void => {
     setSelectedOption1(option);
     console.log("Dropdown 1 selected:", option);
+    console.log(selectedOption1);
 
-    console.log(selectedOption2, selectedOption1);
+    // console.log(selectedOption2, selectedOption1);
   };
 
-  const handleSelect2 = (option: string): void => {
-    setSelectedOption2(option);
-    console.log("Dropdown 2 selected:", option);
-  };
+  // const handleSelect2 = (option: string): void => {
+  //   setSelectedOption2(option);
+  //   console.log("Dropdown 2 selected:", option);
+  // };
 
   return (
     // <HomePageMobileWrapper>

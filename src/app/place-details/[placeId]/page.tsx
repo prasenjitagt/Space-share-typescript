@@ -1,7 +1,7 @@
 "use client";
 
 import DetailsPageAmenities from "@/components/details-page/details-page-amenities";
-import DetailsPageNav from "@/components/details-page/details-page-nav";
+// import DetailsPageNav from "@/components/details-page/details-page-nav";
 import DetailsPageMap from "@/components/details-page/details-page-map";
 import DetailsPageOperatingHours from "@/components/details-page/details-page-operating-hours";
 import store from "@/app/store";

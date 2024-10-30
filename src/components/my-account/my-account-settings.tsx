@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image';
+// import Image from 'next/image';
 import MyAccountSettingsDetailsCard from './my-account-settings-details-card';
 import DividerLine from '../small-components/divider-line';
 

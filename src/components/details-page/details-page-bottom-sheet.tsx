@@ -4,7 +4,7 @@ import "@/stylesheets/details-page-price.css";
 import { useSelector } from "react-redux";
 import { EachSelectedDate } from "@/slices/places/current-place-slice";
 import { RootState } from "@/app/store";
-import Image from "next/image";
+// import Image from "next/image";
 import DetailsPageBottomSheetCalendar from "./details-page-bottom-sheet-calendar";
 
 interface PropType {
